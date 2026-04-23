@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "REVEN | Prediction Market Terminal",
@@ -14,9 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="bg-[#0a0f14] text-white min-h-screen flex flex-col antialiased">
         <Header />
-        <main>{children}</main>
+        <main className="flex-1 pb-10">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
