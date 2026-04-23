@@ -11,7 +11,7 @@ const MarketNav = () => {
   const sizes = ["5$", "10$", "25$", "50$", "100$", "Custom"];
 
   return (
-    <div className="w-full bg-[#0a0f14] border-b border-white/[0.03] px-6 py-2.5 flex items-center justify-between gap-4">
+    <div className="w-full bg-[#0a0f14] border-b border-white/[0.03] px-12 py-2.5 flex items-center justify-between gap-4">
       {/* Left side: Tabs */}
       <div className="flex items-center gap-7">
         {tabs.map((tab) => (
