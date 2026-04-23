@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { Providers } from "@/providers/Providers";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${plusJakartaSans.variable} font-sans bg-[#0a0f14] text-white h-screen flex flex-col overflow-hidden antialiased`} suppressHydrationWarning>
-        <Header />
-        <main className="flex-1 overflow-hidden">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="flex-1 overflow-hidden">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
