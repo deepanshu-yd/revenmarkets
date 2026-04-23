@@ -13,7 +13,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 @keyframes float {
