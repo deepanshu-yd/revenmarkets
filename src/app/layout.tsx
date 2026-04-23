@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${plusJakartaSans.variable} font-sans bg-[#0a0f14] text-white min-h-screen flex flex-col antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${plusJakartaSans.variable} font-sans bg-[#0a0f14] text-white min-h-screen flex flex-col antialiased`} suppressHydrationWarning>
         <Header />
         <main className="flex-1 pb-10">
           {children}

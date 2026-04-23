@@ -32,7 +32,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
         <div className="px-8 pt-10 pb-12 flex flex-col items-center">
           {/* Header */}
           <h2 className="text-xl font-bold text-white/90 mb-8 tracking-tight">
-            Welcome to RevenMarkets
+            Welcome to Reven Markets
           </h2>
 
           {/* Logo Section */}
