@@ -167,6 +167,84 @@ const MarketTerminal = () => {
       liquidity: "$6,123,456.78",
       age: "N/A",
       closingTime: "173d 9h 10m left"
+    },
+    {
+      id: 13,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=brazil",
+      description: "Will Brazil win the 2026 FIFA World Cup?",
+      priceYes: "12.5¢",
+      priceNo: "87.5¢",
+      probability: "12%",
+      volume: "$145,678,234.00",
+      change: "+2.1¢",
+      liquidity: "$12,456,789.00",
+      age: "N/A",
+      closingTime: "173d 10h 15m left"
+    },
+    {
+      id: 14,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=france",
+      description: "Will France win the 2026 FIFA World Cup?",
+      priceYes: "10.2¢",
+      priceNo: "89.8¢",
+      probability: "10%",
+      volume: "$132,456,789.00",
+      change: "-1.5¢",
+      liquidity: "$11,234,567.00",
+      age: "N/A",
+      closingTime: "173d 11h 20m left"
+    },
+    {
+      id: 15,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=argentina",
+      description: "Will Argentina win the 2026 FIFA World Cup?",
+      priceYes: "15.8¢",
+      priceNo: "84.2¢",
+      probability: "15%",
+      volume: "$189,234,567.00",
+      change: "+3.2¢",
+      liquidity: "$15,678,901.00",
+      age: "N/A",
+      closingTime: "173d 12h 30m left"
+    },
+    {
+      id: 16,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=spain",
+      description: "Will Spain win the 2026 FIFA World Cup?",
+      priceYes: "8.4¢",
+      priceNo: "91.6¢",
+      probability: "8%",
+      volume: "$98,765,432.00",
+      change: "-0.5¢",
+      liquidity: "$8,901,234.00",
+      age: "N/A",
+      closingTime: "173d 13h 40m left"
+    },
+    {
+      id: 17,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=england",
+      description: "Will England win the 2026 FIFA World Cup?",
+      priceYes: "7.1¢",
+      priceNo: "92.9¢",
+      probability: "7%",
+      volume: "$87,654,321.00",
+      change: "+0.8¢",
+      liquidity: "$7,890,123.00",
+      age: "N/A",
+      closingTime: "173d 14h 50m left"
+    },
+    {
+      id: 18,
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=germany",
+      description: "Will Germany win the 2026 FIFA World Cup?",
+      priceYes: "6.5¢",
+      priceNo: "93.5¢",
+      probability: "6%",
+      volume: "$76,543,210.00",
+      change: "-1.2¢",
+      liquidity: "$6,789,012.00",
+      age: "N/A",
+      closingTime: "173d 15h 00m left"
     }
   ];
 
@@ -270,6 +348,14 @@ const MarketTerminal = () => {
             ))}
           </tbody>
         </table>
+
+        {/* Load More Button */}
+        <div className="flex justify-center py-10">
+          <button className="bg-[#11161d] hover:bg-[#1a1f26] border border-white/5 text-gray-400 hover:text-white px-8 py-3 rounded-xl font-bold text-sm transition-all duration-200 shadow-lg flex items-center gap-2 group">
+            Load More Markets
+            <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
+          </button>
+        </div>
       </div>
 
       <style jsx>{`
