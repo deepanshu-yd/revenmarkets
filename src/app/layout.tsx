@@ -21,9 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${plusJakartaSans.variable} font-sans bg-[#0a0f14] text-white min-h-screen flex flex-col antialiased`} suppressHydrationWarning>
+      <body className={`${plusJakartaSans.variable} font-sans bg-[#0a0f14] text-white h-screen flex flex-col overflow-hidden antialiased`} suppressHydrationWarning>
         <Header />
-        <main className="flex-1 pb-10">
+        <main className="flex-1 overflow-hidden">
           {children}
         </main>
         <Footer />
