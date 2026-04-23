@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
-      <div>Hello world!</div>
-    </main>
+    <div className="min-h-[calc(100vh-73px)] bg-[#0a0c10]">
+      {/* Content will go here */}
+    </div>
   );
 }

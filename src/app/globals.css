@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #0a0c10;
+    --foreground: #ffffff;
+    --accent: #4fd1c5;
+    --muted: #94a3b8;
+    --card: #111827;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(94, 234, 212, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(94, 234, 212, 0.5));
+  }
+}
+
+.animate-logo {
+  animation: float 4s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+}
