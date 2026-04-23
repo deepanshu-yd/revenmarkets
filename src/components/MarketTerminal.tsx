@@ -173,7 +173,7 @@ const MarketTerminal = () => {
   return (
     <div className="flex flex-col h-full overflow-hidden bg-[#0a0c10]">
       {/* Sub-Tabs Navigation */}
-      <div className="flex items-center gap-7 px-6 py-2 border-b border-white/[0.03] overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-7 px-12 py-2 border-b border-white/[0.03] overflow-x-auto no-scrollbar">
         {subTabs.map((tab) => (
           <button
             key={tab}
@@ -197,7 +197,7 @@ const MarketTerminal = () => {
         <table className="w-full text-left border-collapse min-w-[1200px]">
           <thead className="sticky top-0 bg-[#0a0c10] z-20">
             <tr className="border-b border-white/[0.03]">
-              <th className="px-6 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider w-[400px]">Market</th>
+              <th className="px-12 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider w-[400px]">Market</th>
               <th className="px-4 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">Price (yes|no)</th>
               <th className="px-4 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
                 <div className="flex items-center gap-1">
@@ -229,13 +229,13 @@ const MarketTerminal = () => {
                   Closing Time <ChevronUp size={12} />
                 </div>
               </th>
-              <th className="px-4 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">Quick Action</th>
+              <th className="px-4 pr-12 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">Quick Action</th>
             </tr>
           </thead>
           <tbody>
             {markets.map((market) => (
               <tr key={market.id} className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors group">
-                <td className="px-6 py-4">
+                <td className="px-12 py-4">
                   <div className="flex items-center gap-3">
                     <img src={market.image} alt="" className="w-8 h-8 rounded-md bg-gray-800" />
                     <span className="text-[12px] font-medium text-white/80 leading-relaxed group-hover:text-white transition-colors">
@@ -256,7 +256,7 @@ const MarketTerminal = () => {
                 <td className="px-4 py-4 text-[#5eead4] text-[12px] font-bold">{market.liquidity}</td>
                 <td className="px-4 py-4 text-[12px] font-bold text-white/40">{market.age}</td>
                 <td className="px-4 py-4 text-[11px] font-medium text-white/60">{market.closingTime}</td>
-                <td className="px-4 py-4">
+                <td className="px-4 pr-12 py-4">
                   <div className="flex items-center gap-2">
                     <button className="bg-[#5eead4]/5 hover:bg-[#5eead4]/10 text-[#5eead4] text-[10px] font-black px-3 py-1.5 rounded border border-[#5eead4]/10 transition-all active:scale-95">
                       BUY YES

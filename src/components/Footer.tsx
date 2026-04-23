@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="absolute inset-0 rounded-full bg-[#5eead4] animate-ping opacity-20 scale-75 group-hover:opacity-40" />
       </button>
 
-      <footer className="fixed bottom-0 left-0 right-0 h-10 bg-[#0a0f14] border-t border-white/5 flex items-center justify-between px-6 z-50">
+      <footer className="fixed bottom-0 left-0 right-0 h-10 bg-[#0a0f14] border-t border-white/5 flex items-center justify-between px-12 z-50">
         {/* Left side: Status */}
         <div className="flex items-center gap-2 group cursor-pointer">
           <div className="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" />

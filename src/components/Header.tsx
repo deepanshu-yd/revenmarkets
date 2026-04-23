@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between px-6 py-3 bg-[#0a0f14] border-b border-white/5 sticky top-0 z-50">
+      <header className="flex items-center justify-between px-12 py-3 bg-[#0a0f14] border-b border-white/5 sticky top-0 z-50">
         <div className="flex items-center gap-10">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
