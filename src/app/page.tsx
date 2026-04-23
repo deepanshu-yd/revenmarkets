@@ -1,5 +1,5 @@
-import MarketNav from "@/components/MarketNav";
-import MarketTerminal from "@/components/MarketTerminal";
+import MarketNav from "@/components/layout/MarketNav";
+import MarketTerminal from "@/components/market/MarketTerminal";
 
 export default function Home() {
   return (
