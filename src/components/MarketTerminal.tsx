@@ -7,7 +7,7 @@ const MarketTerminal = () => {
   const [activeSubTab, setActiveSubTab] = useState("All Markets");
 
   const subTabs = [
-    "All Markets", "Trump", "Politics", "Culture", "World", "Sports", 
+    "All Markets", "Trump", "Politics", "Culture", "World", "Sports",
     "Crypto", "Finance", "Economy", "Tech", "Breaking News", "Geopolitics", "New"
   ];
 
@@ -251,16 +251,15 @@ const MarketTerminal = () => {
   return (
     <div className="flex flex-col h-full overflow-hidden bg-[#0a0c10]">
       {/* Sub-Tabs Navigation */}
-      <div className="flex items-center gap-7 px-12 py-2 border-b border-white/[0.03] overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-7 px-12 py-2 border-b border-white/[0.03] overflow-hidden">
         {subTabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveSubTab(tab)}
-            className={`text-[11px] font-bold tracking-tight whitespace-nowrap transition-all duration-200 relative py-2 ${
-              activeSubTab === tab
+            className={`text-[11px] font-bold tracking-tight whitespace-nowrap transition-all duration-200 relative py-2 ${activeSubTab === tab
                 ? "text-white"
                 : "text-gray-500 hover:text-gray-300"
-            }`}
+              }`}
           >
             {tab}
             {activeSubTab === tab && (
