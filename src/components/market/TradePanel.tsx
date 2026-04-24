@@ -9,7 +9,8 @@ type Props = {
 }
 
 export const TradePanel = ({ market }: Props) => {
-  const { eoa, isConnected, connecting } = useWallet()
+  const { eoa, connecting } = useWallet()
+  const isConnected = !!eoa
   const [side, setSide] = useState<'BUY' | 'SELL'>('BUY')
   const [outcome, setOutcome] = useState<0 | 1>(0) // 0: YES, 1: NO
   const [size, setSize] = useState('')

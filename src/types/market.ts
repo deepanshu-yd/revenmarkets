@@ -20,6 +20,8 @@ export interface Market {
   negRisk: boolean;
   bestBid?: number;
   bestAsk?: number;
+  description?: string;
+  active?: boolean;
 }
 
 export interface Event {
@@ -62,7 +64,7 @@ export interface AggregatorMarket {
   poly: PlatformData;
   kalshi: PlatformData;
   match: number;
-  priceDiff: number;
+  priceDiff?: number;
 }
 
 export interface ArbitrageMarket extends AggregatorMarket {
