@@ -108,7 +108,7 @@ const ArbitrageTerminal = () => {
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] p-10 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
       {selectedItem && (
         <AggregatorModal 
           item={selectedItem} 
@@ -119,16 +119,16 @@ const ArbitrageTerminal = () => {
       <div className="max-w-[1600px] mx-auto mb-10">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-black text-white mb-2 flex items-center gap-3">
-              <ArrowRightLeft className="text-[#5eead4]" />
+            <h2 className="text-sm font-bold text-white mb-1 flex items-center gap-3">
+              <ArrowRightLeft className="text-[#5eead4]" size={16} />
               Arbitrage Finder
             </h2>
-            <p className="text-gray-500 text-sm font-medium">Identify and execute guaranteed profit opportunities across prediction markets.</p>
+            <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Identify and execute guaranteed profit opportunities across prediction markets.</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="bg-white/[0.03] border border-white/10 rounded-xl px-5 py-2.5 flex items-center gap-3">
-              <Zap size={16} className="text-[#5eead4]" />
-              <span className="text-[11px] font-bold text-white/60 uppercase tracking-widest">Active Ops: <span className="text-white">14</span></span>
+              <Zap size={14} className="text-[#5eead4]" />
+              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Active Ops: <span className="text-white">14</span></span>
             </div>
           </div>
         </div>
@@ -162,8 +162,8 @@ const ArbitrageTerminal = () => {
                   <div className="flex items-center gap-4 mb-6">
                     <MarketImage src={item.poly.image} alt="" seed={item.title} className="w-12 h-12 rounded-xl shadow-lg border border-white/5" />
                     <div>
-                      <h3 className="text-lg font-black text-white/90 leading-tight mb-1">{item.title}</h3>
-                      <p className="text-[11px] font-medium text-gray-500 line-clamp-1">{item.description}</p>
+                      <h3 className="text-[12px] font-bold text-white/90 leading-tight mb-1">{item.title}</h3>
+                      <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest line-clamp-1">{item.description}</p>
                     </div>
                   </div>
 
@@ -179,12 +179,12 @@ const ArbitrageTerminal = () => {
                       <div className="flex items-center justify-between">
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">Yes</span>
-                          <span className="text-sm font-black text-[#5eead4]">{item.poly.yes}¢</span>
+                          <span className="text-[12px] font-bold text-[#5eead4]">{item.poly.yes}¢</span>
                         </div>
                         <div className="w-px h-6 bg-white/5" />
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">No</span>
-                          <span className="text-sm font-black text-[#f87171]">{item.poly.no}¢</span>
+                          <span className="text-[12px] font-bold text-[#f87171]">{item.poly.no}¢</span>
                         </div>
                       </div>
                     </div>
@@ -200,12 +200,12 @@ const ArbitrageTerminal = () => {
                       <div className="flex items-center justify-between">
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">Yes</span>
-                          <span className="text-sm font-black text-[#5eead4]">{item.kalshi.yes}¢</span>
+                          <span className="text-[12px] font-bold text-[#5eead4]">{item.kalshi.yes}¢</span>
                         </div>
                         <div className="w-px h-6 bg-white/5" />
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">No</span>
-                          <span className="text-sm font-black text-[#f87171]">{item.kalshi.no}¢</span>
+                          <span className="text-[12px] font-bold text-[#f87171]">{item.kalshi.no}¢</span>
                         </div>
                       </div>
                     </div>

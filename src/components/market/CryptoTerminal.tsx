@@ -86,21 +86,21 @@ const CryptoTerminal = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Sub Header */}
-        <div className="px-10 py-6 flex items-center justify-between border-b border-white/[0.03]">
+        <div className="px-12 py-6 flex items-center justify-between border-b border-white/[0.03]">
           <div>
-            <h1 className="text-lg font-bold text-white/90">{activeTimeframe} Crypto Markets</h1>
+            <h1 className="text-sm font-bold text-white/90">{activeTimeframe} Crypto Markets</h1>
             <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">
               April 24, 5:50AM - 5:55AM ET
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-black text-white/80 uppercase tracking-widest">3m 21s left</span>
+            <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">3m 21s left</span>
             <div className="w-2 h-2 rounded-full bg-[#f87171] animate-pulse" />
           </div>
         </div>
 
         {/* Cards Grid */}
-        <div className="flex-1 overflow-y-auto p-10 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto px-12 py-8 custom-scrollbar">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {CRYPTO_DATA.map((crypto) => (
               <div 
@@ -121,10 +121,10 @@ const CryptoTerminal = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-white/90">{crypto.name} Up or Down</h3>
-                      <div className="flex items-center gap-1 mt-0.5">
+                      <h3 className="text-[12px] font-bold text-white/90 leading-snug">{crypto.name} Up or Down</h3>
+                      <div className="flex items-center gap-1 mt-1">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                        <span className="text-[9px] text-gray-500 font-bold uppercase">Binance</span>
+                        <span className="text-[9px] text-gray-600 font-bold uppercase">Binance</span>
                       </div>
                     </div>
                   </div>
@@ -172,7 +172,7 @@ const CryptoTerminal = () => {
                       <div className="text-[9px] font-bold text-gray-600 uppercase tracking-widest flex items-center gap-1">
                         Current Price <TrendingDown size={10} className="text-[#f87171]" />
                       </div>
-                      <div className="text-[13px] font-black text-[#fbbf24] mt-0.5">
+                      <div className="text-[12px] font-bold text-[#fbbf24] mt-0.5">
                         ${crypto.currentPrice.toLocaleString()}
                       </div>
                     </div>
@@ -180,7 +180,7 @@ const CryptoTerminal = () => {
                       <div className="text-[9px] font-bold text-gray-600 uppercase tracking-widest">
                         Price to Beat
                       </div>
-                      <div className="text-[13px] font-black text-white/80 mt-0.5">
+                      <div className="text-[12px] font-bold text-white/60 mt-0.5">
                         ${crypto.priceToBeat.toLocaleString()}
                       </div>
                     </div>

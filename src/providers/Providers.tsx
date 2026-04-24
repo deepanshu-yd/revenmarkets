@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { SWRConfig } from 'swr';
 import { initWalletAutoReconnect } from '@/lib/wallet';
+import { SettingsProvider } from './SettingsContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -17,7 +18,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
         shouldRetryOnError: false
       }}
     >
-      {children}
+      <SettingsProvider>
+        {children}
+      </SettingsProvider>
     </SWRConfig>
   );
 }

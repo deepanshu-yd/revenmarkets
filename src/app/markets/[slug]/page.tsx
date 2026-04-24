@@ -8,12 +8,14 @@ import { Avatar } from "@/components/ui/Avatar";
 import { OrderBook } from "@/components/market/OrderBook";
 import { PriceChart } from "@/components/market/PriceChart";
 import { TradePanel } from "@/components/market/TradePanel";
-import { Loader2, ArrowLeft, Star, Share2, Info } from "lucide-react";
+import { Loader2, ArrowLeft, Star, Share2, Info, ShieldCheck } from "lucide-react";
+import { useSettings } from "@/providers/SettingsContext";
 import Link from "next/link";
 
 export default function MarketPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const [activeTab, setActiveTab] = useState<'book' | 'history' | 'info'>('book');
+  const { isPrivate } = useSettings();
 
   const { market, history, error, isLoading, yesToken } = useMarketDetail(slug);
   const { bids, asks, lastTrade, connected } = useLiveBook(yesToken);
@@ -186,6 +188,17 @@ export default function MarketPage({ params }: { params: Promise<{ slug: string 
           </div>
 
           <div className="border-t border-white/[0.03] p-4 bg-[#0a0f14]">
+            {isPrivate && (
+              <div className="mb-4 p-3 bg-[#5eead4]/5 border border-[#5eead4]/20 rounded-xl flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-[#5eead4]" />
+                  <span className="text-[10px] font-black text-[#5eead4] uppercase tracking-widest">Private Mode Active</span>
+                </div>
+                <p className="text-[9px] font-bold text-[#5eead4]/60 leading-relaxed uppercase tracking-tight">
+                  Your transaction will be processed through our privacy layer. Your public wallet address will not be visible on-chain for this trade.
+                </p>
+              </div>
+            )}
             <TradePanel market={market} />
           </div>
         </div>

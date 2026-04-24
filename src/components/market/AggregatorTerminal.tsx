@@ -175,7 +175,7 @@ const AggregatorTerminal = () => {
   const [selectedItem, setSelectedItem] = React.useState<any>(null);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] p-10 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
       {selectedItem && (
         <AggregatorModal 
           item={selectedItem} 
@@ -208,11 +208,11 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-6">
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Yes</span>
-                  <span className="text-[13px] font-black text-[#5eead4]">{item.poly.yes}¢</span>
+                  <span className="text-[12px] font-bold text-[#5eead4]">{item.poly.yes}¢</span>
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">No</span>
-                  <span className="text-[13px] font-black text-[#f87171]">{item.poly.no}¢</span>
+                  <span className="text-[12px] font-bold text-[#f87171]">{item.poly.no}¢</span>
                 </div>
               </div>
             </div>
@@ -237,11 +237,11 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-6">
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Yes</span>
-                  <span className="text-[13px] font-black text-[#5eead4]">{item.kalshi.yes}¢</span>
+                  <span className="text-[12px] font-bold text-[#5eead4]">{item.kalshi.yes}¢</span>
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">No</span>
-                  <span className="text-[13px] font-black text-[#f87171]">{item.kalshi.no}¢</span>
+                  <span className="text-[12px] font-bold text-[#f87171]">{item.kalshi.no}¢</span>
                 </div>
               </div>
             </div>
@@ -251,16 +251,16 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Match</span>
-                  <span className="text-[14px] font-black text-[#5eead4]">{item.match}%</span>
+                  <span className="text-[12px] font-bold text-[#5eead4]">{item.match}%</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Price Diff</span>
-                  <span className="text-[14px] font-black text-white/90">{item.priceDiff}¢</span>
+                  <span className="text-[12px] font-bold text-white/90">{item.priceDiff}¢</span>
                 </div>
               </div>
               <button 
                 onClick={() => setSelectedItem(item)}
-                className="px-5 py-2 bg-[#1a212c] border border-white/10 rounded-lg text-[11px] font-black text-white/80 hover:bg-[#232d3b] hover:border-white/20 transition-all uppercase tracking-widest"
+                className="px-5 py-2 bg-[#1a212c] border border-white/10 rounded-lg text-[10px] font-black text-white hover:bg-[#232d3b] hover:border-[#5eead4]/50 transition-all uppercase tracking-widest"
               >
                 View Details
               </button>

@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import { Zap } from "lucide-react";
 import Link from "next/link";
 import ConnectModal from "./ConnectModal";
+import { useSettings } from "@/providers/SettingsContext";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isPrivate, setIsPrivate } = useSettings();
 
   return (
     <>
@@ -49,7 +51,7 @@ const Header = () => {
               <Zap size={14} fill="currentColor" />
               Flash
             </Link>
-            {["Trade", "Copy", "Portfolio"].map((item) => (
+            {["Trade", "Copy"].map((item) => (
               <Link
                 key={item}
                 href="#"
@@ -58,16 +60,47 @@ const Header = () => {
                 {item}
               </Link>
             ))}
+            <Link
+              href="/portfolio"
+              className="text-gray-400 text-[13px] font-semibold transition-colors hover:text-white"
+            >
+              Portfolio
+            </Link>
           </nav>
         </div>
 
-        {/* Connect Button */}
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="bg-[#5eead4] hover:brightness-110 text-[#0a0f14] px-6 py-2 rounded-[10px] font-bold text-sm transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(94,234,212,0.15)]"
-        >
-          Connect
-        </button>
+        {/* Action Controls */}
+        <div className="flex items-center gap-4">
+          {/* Private Mode Toggle */}
+          <div className="flex items-center gap-3 mr-2 group">
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest group-hover:text-gray-400 transition-colors">Private Mode</span>
+            <button 
+              onClick={() => setIsPrivate(!isPrivate)}
+              className={`w-8 h-4 rounded-full relative transition-all duration-300 ${isPrivate ? 'bg-[#5eead4]' : 'bg-white/10'}`}
+            >
+              <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-[#0a0f14] transition-all duration-300 ${isPrivate ? 'left-[18px]' : 'left-0.5'}`} />
+            </button>
+          </div>
+
+          <button className="p-2.5 bg-[#11161d] border border-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </button>
+
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="bg-[#5eead4]/5 border border-[#5eead4]/30 rounded-lg px-6 py-2 text-[11px] font-black text-[#5eead4] uppercase tracking-widest hover:bg-[#5eead4]/10 transition-all active:scale-95"
+          >
+            Deposit
+          </button>
+
+          <button className="p-2.5 bg-[#11161d] border border-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </button>
+        </div>
       </header>
 
       <ConnectModal

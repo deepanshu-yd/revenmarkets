@@ -76,20 +76,20 @@ const BotsTerminal = () => {
   const [activeTab, setActiveTab] = useState("Manage");
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] p-10 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
       <div className="max-w-[1400px] mx-auto space-y-10 pb-20">
         
         {/* Header Section */}
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-3xl font-black text-white flex items-center gap-4 mb-2">
-              <Bot className="text-[#5eead4]" size={32} />
+            <h2 className="text-sm font-bold text-white flex items-center gap-3 mb-1">
+              <Bot className="text-[#5eead4]" size={18} />
               Automated Bots
             </h2>
-            <p className="text-gray-500 font-medium">Deploy algorithmic strategies and copy the world's best predictors.</p>
+            <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Deploy algorithmic strategies and copy the world's best predictors.</p>
           </div>
-          <button className="bg-[#5eead4] text-black px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-[0_0_20px_rgba(94,234,212,0.3)]">
-            <Plus size={16} />
+          <button className="bg-[#5eead4] text-black px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-[0_0_20px_rgba(94,234,212,0.3)]">
+            <Plus size={14} />
             Create Custom Bot
           </button>
         </div>
@@ -104,10 +104,10 @@ const BotsTerminal = () => {
           ].map((stat, i) => (
             <div key={i} className="bg-[#11161d] border border-white/5 rounded-2xl p-6 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] block mb-2">{stat.label}</span>
-                <span className={`text-2xl font-black ${stat.color}`}>{stat.val}</span>
+                <span className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.2em] block mb-2">{stat.label}</span>
+                <span className={`text-[20px] font-black ${stat.color}`}>{stat.val}</span>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center text-gray-400">
+              <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center text-gray-500">
                 {stat.icon}
               </div>
             </div>
@@ -149,19 +149,19 @@ const BotsTerminal = () => {
                         </div>
                         <div>
                           <div className="flex items-center gap-3">
-                            <h4 className="font-black text-white text-lg">{bot.name}</h4>
-                            <span className={`text-[9px] font-black px-2 py-0.5 rounded uppercase ${bot.status === 'Running' ? 'bg-green-500/10 text-green-500' : 'bg-yellow-500/10 text-yellow-500'}`}>
+                            <h4 className="font-bold text-white text-[12px]">{bot.name}</h4>
+                            <span className={`text-[8px] font-black px-1.5 py-0.5 rounded uppercase ${bot.status === 'Running' ? 'bg-green-500/10 text-green-500' : 'bg-yellow-500/10 text-yellow-500'}`}>
                               {bot.status}
                             </span>
                           </div>
-                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">{bot.type} • Uptime: {bot.uptime}</p>
+                          <p className="text-[9px] font-bold text-gray-600 uppercase tracking-widest mt-1">{bot.type} • Uptime: {bot.uptime}</p>
                         </div>
                       </div>
                       
                       <div className="flex items-center gap-12">
                         <div className="text-right">
-                          <span className="text-[10px] font-bold text-gray-600 uppercase block mb-1">ROI</span>
-                          <span className="text-xl font-black text-[#5eead4]">{bot.roi}</span>
+                          <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">ROI</span>
+                          <span className="text-lg font-black text-[#5eead4]">{bot.roi}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <button className="p-3 bg-white/[0.03] rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all">
