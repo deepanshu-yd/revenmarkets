@@ -3,8 +3,12 @@
 import React, { useState } from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
 
-const MarketNav = () => {
-  const [activeTab, setActiveTab] = useState("New Markets");
+interface Props {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
+
+const MarketNav = ({ activeTab, onTabChange }: Props) => {
   const [activeSize, setActiveSize] = useState("5$");
 
   const tabs = ["New Markets", "Crypto", "Aggregator", "Arbitrage Finder", "Automated Bots"];
@@ -17,7 +21,7 @@ const MarketNav = () => {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => onTabChange(tab)}
             className={`text-[13px] font-bold tracking-wide transition-all duration-200 relative py-2 ${
               activeTab === tab
                 ? "text-white"
