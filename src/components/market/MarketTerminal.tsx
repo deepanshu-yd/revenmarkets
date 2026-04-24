@@ -12,7 +12,7 @@ const MarketTerminal = () => {
 
   const subTabs = [
     "All Markets", "Trump", "Politics", "Culture", "World", "Sports",
-    "Crypto", "Finance", "Economy", "Tech", "Breaking News", "Geopolitics", "New"
+    "Crypto", "Finance", "Economy", "Tech", "Breaking News", "Geopolitics"
   ];
 
   const { markets, error, isLoading } = useMarkets(activeSubTab, searchQuery);
@@ -21,14 +21,14 @@ const MarketTerminal = () => {
     <div className="flex flex-col h-full overflow-hidden bg-[#0a0c10]">
       {/* Sub-Tabs Navigation & Search */}
       <div className="flex items-center justify-between px-12 py-2 border-b border-white/[0.03] bg-[#0a0c10] z-30">
-        <div className="flex items-center gap-7 overflow-x-auto no-scrollbar py-2">
+        <div className="flex items-center gap-7 py-2">
           {subTabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveSubTab(tab)}
               className={`text-[11px] font-bold tracking-tight whitespace-nowrap transition-all duration-200 relative py-2 ${activeSubTab === tab
-                  ? "text-white"
-                  : "text-gray-500 hover:text-gray-300"
+                ? "text-white"
+                : "text-gray-500 hover:text-gray-300"
                 }`}
             >
               {tab}
@@ -118,10 +118,10 @@ const MarketTerminal = () => {
                 <tr key={market.id} className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors group cursor-pointer">
                   <td className="px-12 py-4">
                     <Link href={`/markets/${market.slug}`} className="flex items-center gap-3">
-                      <img 
-                        src={market.image || market.icon || `https://api.dicebear.com/7.x/initials/svg?seed=${market.ticker || market.id}`} 
-                        alt="" 
-                        className="w-8 h-8 rounded-md bg-gray-800 object-cover" 
+                      <img
+                        src={market.image || market.icon || `https://api.dicebear.com/7.x/initials/svg?seed=${market.ticker || market.id}`}
+                        alt=""
+                        className="w-8 h-8 rounded-md bg-gray-800 object-cover"
                       />
                       <span className="text-[12px] font-medium text-white/80 leading-relaxed group-hover:text-white transition-colors">
                         {market.question}

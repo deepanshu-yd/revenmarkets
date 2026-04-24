@@ -26,12 +26,6 @@ const Footer = () => {
             href="#" 
             className="text-[10px] font-bold text-white/30 hover:text-white/80 transition-colors uppercase tracking-[0.1em]"
           >
-            Blog
-          </Link>
-          <Link 
-            href="#" 
-            className="text-[10px] font-bold text-white/30 hover:text-white/80 transition-colors uppercase tracking-[0.1em]"
-          >
             Docs
           </Link>
           <Link 

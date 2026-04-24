@@ -125,19 +125,19 @@ export default function MarketPage({ params }: { params: Promise<{ slug: string 
 
           {/* Chart Section */}
           <div className="flex-1 min-h-[400px] p-6 relative">
-             <div className="absolute top-6 left-6 z-10 flex items-center gap-2">
-                <div className="px-3 py-1.5 rounded-lg bg-[#0a0f14] border border-white/5 text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                   <Info size={12} className="text-[#5eead4]" />
-                   Price History (7D)
-                </div>
-             </div>
-             {history ? (
-               <PriceChart data={history.history} liveTick={lastTrade ? { t: Math.floor(lastTrade.ts / 1000), p: lastTrade.price } : null} />
-             ) : (
-               <div className="w-full h-full flex items-center justify-center text-gray-600 font-bold text-xs uppercase tracking-widest">
-                 Loading Chart Data...
-               </div>
-             )}
+            <div className="absolute top-6 left-6 z-10 flex items-center gap-2">
+              <div className="px-3 py-1.5 rounded-lg bg-[#0a0f14] border border-white/5 text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
+                <Info size={12} className="text-[#5eead4]" />
+                Price History (7D)
+              </div>
+            </div>
+            {history ? (
+              <PriceChart data={history.history} liveTick={lastTrade ? { t: Math.floor(lastTrade.ts / 1000), p: lastTrade.price } : null} />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-600 font-bold text-xs uppercase tracking-widest">
+                Loading Chart Data...
+              </div>
+            )}
           </div>
 
           {/* Description / Info Section */}
@@ -159,18 +159,16 @@ export default function MarketPage({ params }: { params: Promise<{ slug: string 
           <div className="flex border-b border-white/[0.03]">
             <button
               onClick={() => setActiveTab('book')}
-              className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest transition-all relative ${
-                activeTab === 'book' ? 'text-white' : 'text-gray-500 hover:text-gray-300'
-              }`}
+              className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest transition-all relative ${activeTab === 'book' ? 'text-white' : 'text-gray-500 hover:text-gray-300'
+                }`}
             >
               Order Book
               {activeTab === 'book' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#5eead4]" />}
             </button>
             <button
               onClick={() => setActiveTab('history')}
-              className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest transition-all relative ${
-                activeTab === 'history' ? 'text-white' : 'text-gray-500 hover:text-gray-300'
-              }`}
+              className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest transition-all relative ${activeTab === 'history' ? 'text-white' : 'text-gray-500 hover:text-gray-300'
+                }`}
             >
               Trades
               {activeTab === 'history' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#5eead4]" />}

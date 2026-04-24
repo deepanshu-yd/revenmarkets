@@ -17,12 +17,14 @@ export function useMarkets(activeTab: string, searchQuery: string) {
   );
 
   const filteredMarkets = data ? (
-    activeTab === 'All Markets' 
-      ? data 
-      : data.filter(m => 
+    // If it's a category we know exists in tags, filter by it.
+    // Otherwise, show all data (like for 'New Markets', 'Aggregator', etc.)
+    ['crypto', 'politics', 'culture', 'world', 'sports', 'finance', 'economy', 'tech', 'trump', 'breaking news', 'geopolitics'].includes(activeTab.toLowerCase())
+      ? data.filter(m => 
           m.tags?.some(t => t.label.toLowerCase() === activeTab.toLowerCase()) ||
           m.question.toLowerCase().includes(activeTab.toLowerCase())
         )
+      : data
   ) : [];
 
   return {

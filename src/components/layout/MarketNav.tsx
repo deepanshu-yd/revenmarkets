@@ -7,7 +7,7 @@ const MarketNav = () => {
   const [activeTab, setActiveTab] = useState("New Markets");
   const [activeSize, setActiveSize] = useState("5$");
 
-  const tabs = ["New Markets", "Crypto", "Sports", "Calendar", "Aggregator"];
+  const tabs = ["New Markets", "Crypto", "Aggregator", "Arbitrage Finder", "Automated Bots"];
   const sizes = ["5$", "10$", "25$", "50$", "100$", "Custom"];
 
   return (

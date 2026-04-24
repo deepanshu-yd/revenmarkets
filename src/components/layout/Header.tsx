@@ -47,9 +47,9 @@ const Header = () => {
               className="flex items-center gap-1.5 text-[#5eead4] text-[13px] font-semibold transition-colors hover:opacity-80"
             >
               <Zap size={14} fill="currentColor" />
-              Lightning
+              Flash
             </Link>
-            {["Trade", "Copy", "Tournament", "Portfolio"].map((item) => (
+            {["Trade", "Copy", "Portfolio"].map((item) => (
               <Link
                 key={item}
                 href="#"
@@ -62,7 +62,7 @@ const Header = () => {
         </div>
 
         {/* Connect Button */}
-        <button 
+        <button
           onClick={() => setIsModalOpen(true)}
           className="bg-[#5eead4] hover:brightness-110 text-[#0a0f14] px-6 py-2 rounded-[10px] font-bold text-sm transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(94,234,212,0.15)]"
         >
@@ -70,9 +70,9 @@ const Header = () => {
         </button>
       </header>
 
-      <ConnectModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <ConnectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </>
   );

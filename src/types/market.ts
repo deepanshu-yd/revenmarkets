@@ -1,5 +1,6 @@
 export interface Market {
   id: string;
+  source: 'polymarket' | 'kalshi';
   question: string;
   slug: string;
   image?: string;
