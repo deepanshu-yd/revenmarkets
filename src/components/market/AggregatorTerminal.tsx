@@ -3,6 +3,7 @@
 import React from "react";
 import { ExternalLink, ArrowRightLeft } from "lucide-react";
 import { MarketImage } from "./MarketImage";
+import { AggregatorMarket } from "@/types/market";
 
 const AGGREGATOR_DATA = [
   {
@@ -172,7 +173,7 @@ const AGGREGATOR_DATA = [
 import AggregatorModal from "./AggregatorModal";
 
 const AggregatorTerminal = () => {
-  const [selectedItem, setSelectedItem] = React.useState<any>(null);
+  const [selectedItem, setSelectedItem] = React.useState<AggregatorMarket | null>(null);
 
   return (
     <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">

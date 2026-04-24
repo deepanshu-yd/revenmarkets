@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { X, ExternalLink, Info, Sparkles, TrendingUp, Zap } from "lucide-react";
 import { MarketImage } from "./MarketImage";
+import { AggregatorMarket } from "@/types/market";
 
 interface Props {
-  item: any;
+  item: AggregatorMarket;
   onClose: () => void;
 }
 

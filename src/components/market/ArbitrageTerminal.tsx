@@ -47,13 +47,9 @@ const ARBITRAGE_DATA = [
       no: 15,
       image: "https://unavatar.io/twitter/Ripple"
     },
-    strategy: "Buy NO on Poly (35¢) + Buy YES on Kalshi (85¢)",
-    totalCost: 120, // Wait, this is not an arb if total > 100 unless it's a different kind.
-    // Real arb: A_Yes + B_No < 100
-    // Poly Yes (65) + Kalshi No (15) = 80. Profit = 20.
-    strategy2: "Buy YES on Poly (65¢) + Buy NO on Kalshi (15¢)",
-    totalCost2: 80,
-    potentialProfit2: 20,
+    strategy: "Buy YES on Poly (65¢) + Buy NO on Kalshi (15¢)",
+    totalCost: 80,
+    potentialProfit: 20,
     match: 94
   },
   {
@@ -104,8 +100,10 @@ const ARBITRAGE_DATA = [
   }
 ];
 
+import { ArbitrageMarket } from "@/types/market";
+
 const ArbitrageTerminal = () => {
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<ArbitrageMarket | null>(null);
 
   return (
     <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">

@@ -48,3 +48,28 @@ export interface HistoryPoint {
   t: number;
   p: number;
 }
+
+export interface PlatformData {
+  question: string;
+  yes: number;
+  no: number;
+  image: string;
+}
+
+export interface AggregatorMarket {
+  id: number;
+  title: string;
+  poly: PlatformData;
+  kalshi: PlatformData;
+  match: number;
+  priceDiff: number;
+}
+
+export interface ArbitrageMarket extends AggregatorMarket {
+  description: string;
+  profit: string;
+  risk: string;
+  totalCost: number;
+  potentialProfit: number;
+  strategy: string;
+}
