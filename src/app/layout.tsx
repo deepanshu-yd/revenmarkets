@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 import { Providers } from "@/providers/Providers";
 
 // We'll use a standard link tag for the font to avoid build-time fetch issues
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`font-['Plus_Jakarta_Sans',sans-serif] bg-[#0a0f14] text-white h-screen flex flex-col overflow-hidden antialiased`} suppressHydrationWarning>
         <Providers>
           <Header />
+          <AnnouncementBanner />
           <main className="flex-1 overflow-hidden">
             {children}
           </main>
