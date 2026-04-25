@@ -13,6 +13,7 @@ interface Props {
 const AggregatorModal = ({ item, onClose }: Props) => {
   const [side, setSide] = useState<"Yes" | "No">("Yes");
   const [amount, setAmount] = useState("6");
+  const [showNotice, setShowNotice] = useState(false);
 
   const quickAmounts = ["$6", "$10", "$25", "$50", "$100", "MAX"];
 
@@ -215,11 +216,31 @@ const AggregatorModal = ({ item, onClose }: Props) => {
                 </div>
               </div>
 
+              {showNotice && (
+                <div className="absolute -top-10 left-0 right-0 flex justify-center animate-in slide-in-from-bottom-2 duration-200">
+                  <div className="bg-red-500 text-white text-[10px] font-black px-4 py-2 rounded-lg shadow-xl uppercase tracking-widest flex items-center gap-2">
+                    <Zap size={12} fill="currentColor" />
+                    Trading is currently paused for Early Access
+                  </div>
+                </div>
+              )}
               <div className="grid grid-cols-2 gap-3">
-                <button className={`py-3 rounded-xl text-[11px] font-black border transition-all ${side === "Yes" ? "bg-[#5eead4] text-black border-[#5eead4] shadow-[0_0_20px_rgba(94,234,212,0.3)]" : "bg-white/[0.02] border-white/10 text-white/40"}`}>
+                <button 
+                  onClick={() => {
+                    setShowNotice(true);
+                    setTimeout(() => setShowNotice(false), 3000);
+                  }}
+                  className={`py-3 rounded-xl text-[11px] font-black border transition-all ${side === "Yes" ? "bg-[#5eead4] text-black border-[#5eead4] shadow-[0_0_20px_rgba(94,234,212,0.3)]" : "bg-white/[0.02] border-white/10 text-white/40"} active:scale-95`}
+                >
                   YES {bestPrice}¢
                 </button>
-                <button className={`py-3 rounded-xl text-[11px] font-black border transition-all ${side === "No" ? "bg-[#f87171] text-white border-[#f87171] shadow-[0_0_20px_rgba(248,113,113,0.3)]" : "bg-white/[0.02] border-white/10 text-white/40"}`}>
+                <button 
+                  onClick={() => {
+                    setShowNotice(true);
+                    setTimeout(() => setShowNotice(false), 3000);
+                  }}
+                  className={`py-3 rounded-xl text-[11px] font-black border transition-all ${side === "No" ? "bg-[#f87171] text-white border-[#f87171] shadow-[0_0_20px_rgba(248,113,113,0.3)]" : "bg-white/[0.02] border-white/10 text-white/40"} active:scale-95`}
+                >
                   NO {100 - bestPrice}¢
                 </button>
               </div>

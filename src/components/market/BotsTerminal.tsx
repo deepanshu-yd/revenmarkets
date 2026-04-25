@@ -88,9 +88,12 @@ const BotsTerminal = () => {
             </h2>
             <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Deploy algorithmic strategies and copy the world's best predictors.</p>
           </div>
-          <button className="bg-[#5eead4] text-black px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-[0_0_20px_rgba(94,234,212,0.3)]">
-            <Plus size={14} />
-            Create Custom Bot
+          <button disabled className="bg-[#5eead4]/20 text-[#5eead4]/40 px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center gap-2 cursor-not-allowed group relative overflow-hidden transition-all">
+            <span className="group-hover:opacity-0 transition-opacity flex items-center gap-2">
+              <Plus size={14} />
+              Create Custom Bot
+            </span>
+            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">CREATION PAUSED</span>
           </button>
         </div>
 
@@ -232,8 +235,9 @@ const BotsTerminal = () => {
                     </div>
                     <div className="text-right">
                       <span className="text-xs font-black text-[#5eead4] block">{trader.roi30d}</span>
-                      <button className="text-[9px] font-black text-gray-500 uppercase tracking-widest mt-1 group-hover:text-[#5eead4] transition-colors">
-                        Copy
+                      <button disabled className="text-[9px] font-black text-gray-700 uppercase tracking-widest mt-1 cursor-not-allowed group relative overflow-hidden px-2 py-0.5">
+                        <span className="group-hover:opacity-0 transition-opacity">Copy</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[7px] text-[#5eead4] font-black">PAUSED</span>
                       </button>
                     </div>
                   </div>
@@ -253,8 +257,9 @@ const BotsTerminal = () => {
               </div>
               <h3 className="text-sm font-black text-[#5eead4] uppercase tracking-widest mb-3">AI Strategy Optimizer</h3>
               <p className="text-xs text-white/60 leading-relaxed mb-6">Let Reven AI analyze your portfolio and suggest the best active bots for current market conditions.</p>
-              <button className="px-5 py-2.5 bg-[#5eead4]/20 border border-[#5eead4]/30 rounded-xl text-[10px] font-black text-[#5eead4] uppercase tracking-widest hover:bg-[#5eead4]/30 transition-all">
-                Run AI Audit
+              <button disabled className="px-5 py-2.5 bg-[#5eead4]/10 border border-[#5eead4]/20 rounded-xl text-[10px] font-black text-[#5eead4]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden">
+                <span className="group-hover:opacity-0 transition-opacity">Run AI Audit</span>
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">AUDIT PAUSED</span>
               </button>
             </div>
           </div>

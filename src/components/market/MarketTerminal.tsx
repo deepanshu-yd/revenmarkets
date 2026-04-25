@@ -159,11 +159,13 @@ const MarketTerminal = () => {
                   </td>
                   <td className="px-4 pr-12 py-4">
                     <div className="flex items-center gap-2">
-                      <button className="bg-[#5eead4]/5 hover:bg-[#5eead4]/10 text-[#5eead4] text-[10px] font-black px-3 py-1.5 rounded border border-[#5eead4]/10 transition-all active:scale-95">
-                        BUY YES
+                      <button disabled className="bg-[#5eead4]/5 text-[#5eead4]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#5eead4]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
+                        <span className="group-hover/btn:opacity-0 transition-opacity">BUY YES</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#5eead4] font-black uppercase">Paused</span>
                       </button>
-                      <button className="bg-[#f87171]/5 hover:bg-[#f87171]/10 text-[#f87171] text-[10px] font-black px-3 py-1.5 rounded border border-[#f87171]/10 transition-all active:scale-95">
-                        BUY NO
+                      <button disabled className="bg-[#f87171]/5 text-[#f87171]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#f87171]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
+                        <span className="group-hover/btn:opacity-0 transition-opacity">BUY NO</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#f87171] font-black uppercase">Paused</span>
                       </button>
                     </div>
                   </td>

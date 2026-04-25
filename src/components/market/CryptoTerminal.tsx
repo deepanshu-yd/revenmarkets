@@ -155,13 +155,14 @@ const CryptoTerminal = () => {
                   </div>
                 </div>
 
-                {/* Buttons */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <button className="flex flex-col items-center py-2.5 bg-[#065f46]/20 border border-[#065f46]/30 rounded-lg hover:bg-[#065f46]/30 transition-all">
-                    <span className="text-[10px] font-bold text-[#5eead4] uppercase tracking-wider">Up {crypto.upPrice}¢</span>
+                  <button disabled className="flex flex-col items-center py-2.5 bg-[#065f46]/10 border border-[#065f46]/20 rounded-lg cursor-not-allowed group/btn relative overflow-hidden">
+                    <span className="text-[10px] font-bold text-[#5eead4]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Up {crypto.upPrice}¢</span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#5eead4] font-black uppercase">Paused</span>
                   </button>
-                  <button className="flex flex-col items-center py-2.5 bg-[#991b1b]/20 border border-[#991b1b]/30 rounded-lg hover:bg-[#991b1b]/30 transition-all">
-                    <span className="text-[10px] font-bold text-[#f87171] uppercase tracking-wider">Down {crypto.downPrice}¢</span>
+                  <button disabled className="flex flex-col items-center py-2.5 bg-[#991b1b]/10 border border-[#991b1b]/20 rounded-lg cursor-not-allowed group/btn relative overflow-hidden">
+                    <span className="text-[10px] font-bold text-[#f87171]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Down {crypto.downPrice}¢</span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#f87171] font-black uppercase">Paused</span>
                   </button>
                 </div>
 

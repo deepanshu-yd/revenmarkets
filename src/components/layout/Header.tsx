@@ -89,10 +89,11 @@ const Header = () => {
           </button>
 
           <button 
-            onClick={() => setIsModalOpen(true)}
-            className="bg-[#5eead4]/5 border border-[#5eead4]/30 rounded-lg px-6 py-2 text-[11px] font-black text-[#5eead4] uppercase tracking-widest hover:bg-[#5eead4]/10 transition-all active:scale-95"
+            disabled
+            className="bg-[#5eead4]/5 border border-[#5eead4]/10 rounded-lg px-6 py-2 text-[11px] font-black text-[#5eead4]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden transition-all"
           >
-            Deposit
+            <span className="group-hover:opacity-0 transition-opacity">Deposit</span>
+            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">PAUSED</span>
           </button>
 
           <button className="p-2.5 bg-[#11161d] border border-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
