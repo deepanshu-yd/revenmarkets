@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface Props {
   activeTab: string;
@@ -9,7 +10,13 @@ interface Props {
 }
 
 const MarketNav = ({ activeTab, onTabChange }: Props) => {
+  const router = useRouter();
   const [activeSize, setActiveSize] = useState("5$");
+
+  const handleTabChange = (tab: string) => {
+    onTabChange(tab);
+    router.push(`/?tab=${tab}`);
+  };
 
   const tabs = ["New Markets", "Crypto", "Aggregator", "Arbitrage Finder", "Automated Bots"];
   const sizes = ["5$", "10$", "25$", "50$", "100$", "Custom"];
@@ -21,7 +28,7 @@ const MarketNav = ({ activeTab, onTabChange }: Props) => {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => onTabChange(tab)}
+            onClick={() => handleTabChange(tab)}
             className={`text-[13px] font-bold tracking-wide transition-all duration-200 relative py-2 ${
               activeTab === tab
                 ? "text-white"

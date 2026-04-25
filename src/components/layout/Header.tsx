@@ -45,7 +45,7 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <Link
-              href="#"
+              href="/?tab=New Markets"
               className="flex items-center gap-1.5 text-[#5eead4] text-[13px] font-semibold transition-colors hover:opacity-80"
             >
               <Zap size={14} fill="currentColor" />
@@ -54,7 +54,7 @@ const Header = () => {
             {["Trade", "Copy"].map((item) => (
               <Link
                 key={item}
-                href="#"
+                href={item === "Copy" ? "/?tab=Automated Bots" : "#"}
                 className="text-gray-400 text-[13px] font-semibold transition-colors hover:text-white"
               >
                 {item}
