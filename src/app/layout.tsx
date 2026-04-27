@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 import { Providers } from "@/providers/Providers";
+import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 
 // We'll use a standard link tag for the font to avoid build-time fetch issues
 
