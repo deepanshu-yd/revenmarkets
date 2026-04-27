@@ -16,10 +16,11 @@
 
 <!-- Video Section -->
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/PLACEHOLDER" width="100%" controls muted autoplay loop>
+  <video src="https://github.com/user-attachments/assets/28177a24-b751-447b-b432-bd5d41acc215" width="100%" controls muted autoplay loop>
     Your browser does not support the video tag.
   </video>
 </div>
+
 
 <br />
 
