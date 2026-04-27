@@ -5,10 +5,13 @@ import { Zap } from "lucide-react";
 import Link from "next/link";
 import ConnectModal from "./ConnectModal";
 import { useSettings } from "@/providers/SettingsContext";
+import { useMarkets } from "@/hooks/useMarkets";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isPrivate, setIsPrivate } = useSettings();
+  const { markets } = useMarkets("All", "");
+  const firstMarketSlug = markets?.[0]?.slug;
 
   return (
     <>
@@ -51,15 +54,14 @@ const Header = () => {
               <Zap size={14} fill="currentColor" />
               Flash
             </Link>
-            {["Trade", "Copy"].map((item) => (
-              <Link
-                key={item}
-                href={item === "Copy" ? "/?tab=Automated Bots" : "#"}
-                className="text-gray-400 text-[13px] font-semibold transition-colors hover:text-white"
-              >
-                {item}
-              </Link>
-            ))}
+            {/* Dynamic Trade Link */}
+            <TradeLink />
+            <Link
+              href="/?tab=Automated Bots"
+              className="text-gray-400 text-[13px] font-semibold transition-colors hover:text-white"
+            >
+              Copy
+            </Link>
             <Link
               href="/portfolio"
               className="text-gray-400 text-[13px] font-semibold transition-colors hover:text-white"
@@ -108,6 +110,24 @@ const Header = () => {
         onClose={() => setIsModalOpen(false)}
       />
     </>
+  );
+};
+
+const TradeLink = () => {
+  const { markets, isLoading } = useMarkets("All", "");
+  const firstMarketSlug = markets?.[0]?.slug;
+
+  return (
+    <Link
+      href={firstMarketSlug ? `/markets/${firstMarketSlug}` : "#"}
+      className={`text-[13px] font-semibold transition-colors ${
+        firstMarketSlug 
+          ? "text-gray-400 hover:text-white" 
+          : "text-gray-600 cursor-not-allowed"
+      }`}
+    >
+      Trade
+    </Link>
   );
 };
 
