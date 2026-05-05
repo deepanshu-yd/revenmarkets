@@ -22,7 +22,7 @@ const MarketNav = ({ activeTab, onTabChange }: Props) => {
   const sizes = ["5$", "10$", "25$", "50$", "100$", "Custom"];
 
   return (
-    <div className="w-full bg-[#0a0f14] border-b border-white/[0.03] px-12 py-2.5 flex items-center justify-between gap-4">
+    <div className="w-full bg-black border-b border-[#333333] px-12 py-2.5 flex items-center justify-between gap-4">
       {/* Left side: Tabs */}
       <div className="flex items-center gap-7">
         {tabs.map((tab) => (
@@ -37,7 +37,7 @@ const MarketNav = ({ activeTab, onTabChange }: Props) => {
           >
             {tab}
             {activeTab === tab && (
-              <div className="absolute bottom-[-11px] left-0 right-0 h-[2px] bg-[#5eead4] shadow-[0_0_12px_rgba(94,234,212,0.5)] z-10" />
+              <div className="absolute bottom-[-11px] left-0 right-0 h-[2px] bg-[#00ff41]  z-10" />
             )}
           </button>
         ))}
@@ -48,14 +48,14 @@ const MarketNav = ({ activeTab, onTabChange }: Props) => {
         {/* Buy Size */}
         <div className="flex items-center gap-3">
           <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Buy Size</span>
-          <div className="flex items-center bg-[#11161d] rounded-lg p-1 border border-white/[0.05]">
+          <div className="flex items-center bg-[#111111] rounded-none p-1 border border-[#333333]">
             {sizes.map((size) => (
               <button
                 key={size}
                 onClick={() => setActiveSize(size)}
-                className={`px-3.5 py-1.5 text-[11px] font-black rounded-md transition-all duration-200 ${
+                className={`px-3.5 py-1.5 text-[11px] font-black rounded-none transition-all duration-200 ${
                   activeSize === size
-                    ? "bg-[#5eead4]/10 text-[#5eead4] shadow-[inset_0_0_0_1px_rgba(94,234,212,0.2)]"
+                    ? "bg-[#00ff41]/10 text-[#00ff41] "
                     : "text-gray-500 hover:text-gray-300"
                 }`}
               >
@@ -67,16 +67,16 @@ const MarketNav = ({ activeTab, onTabChange }: Props) => {
 
         {/* Search */}
         <div className="relative group">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-[#5eead4] transition-colors" size={13} />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-[#00ff41] transition-colors" size={13} />
           <input
             type="text"
             placeholder="Search for a market"
-            className="bg-[#11161d] border border-white/[0.05] rounded-lg pl-10 pr-4 py-2.5 text-[12px] text-white placeholder:text-gray-700 focus:outline-none focus:border-[#5eead4]/30 focus:ring-1 focus:ring-[#5eead4]/10 w-[260px] transition-all"
+            className="bg-[#111111] border border-[#333333] rounded-none pl-10 pr-4 py-2.5 text-[12px] text-white placeholder:text-gray-700 focus:outline-none focus:border-[#00ff41]/30 focus:ring-1 focus:ring-[#00ff41]/10 w-[260px] transition-all"
           />
         </div>
 
         {/* Filters */}
-        <button className="flex items-center gap-2.5 bg-[#11161d] border border-white/[0.05] hover:border-white/[0.1] px-4 py-2.5 rounded-lg transition-all group">
+        <button className="flex items-center gap-2.5 bg-[#111111] border border-[#333333] hover:border-white/[0.1] px-4 py-2.5 rounded-none transition-all group">
           <span className="text-[12px] font-bold text-gray-500 group-hover:text-gray-300">Filters</span>
           <SlidersHorizontal size={14} className="text-gray-600 group-hover:text-gray-400" />
         </button>

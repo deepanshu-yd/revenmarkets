@@ -48,19 +48,19 @@ export const TradePanel = ({ market }: Props) => {
 
   return (
     <div className="flex flex-col gap-4 p-4 bg-white/[0.02] h-full">
-      <div className="flex bg-[#0a0f14] p-1 rounded-xl border border-white/5">
+      <div className="flex bg-black p-1 rounded-none border border-[#333333]">
         <button
           onClick={() => setSide('BUY')}
-          className={`flex-1 py-2 text-[11px] font-black rounded-lg transition-all ${
-            side === 'BUY' ? 'bg-[#5eead4] text-[#0a0f14]' : 'text-gray-500 hover:text-white'
+          className={`flex-1 py-2 text-[11px] font-black rounded-none transition-all ${
+            side === 'BUY' ? 'bg-[#00ff41] text-[#0a0f14]' : 'text-gray-500 hover:text-white'
           }`}
         >
           BUY
         </button>
         <button
           onClick={() => setSide('SELL')}
-          className={`flex-1 py-2 text-[11px] font-black rounded-lg transition-all ${
-            side === 'SELL' ? 'bg-[#f87171] text-[#0a0f14]' : 'text-gray-500 hover:text-white'
+          className={`flex-1 py-2 text-[11px] font-black rounded-none transition-all ${
+            side === 'SELL' ? 'bg-[#ff3333] text-[#0a0f14]' : 'text-gray-500 hover:text-white'
           }`}
         >
           SELL
@@ -70,20 +70,20 @@ export const TradePanel = ({ market }: Props) => {
       <div className="grid grid-cols-2 gap-2">
         <button
           onClick={() => setOutcome(0)}
-          className={`py-2 text-[11px] font-bold rounded-lg border transition-all ${
+          className={`py-2 text-[11px] font-bold rounded-none border transition-all ${
             outcome === 0
-              ? 'border-[#5eead4] text-[#5eead4] bg-[#5eead4]/5'
-              : 'border-white/5 text-gray-500 hover:border-white/10'
+              ? 'border-[#00ff41] text-[#00ff41] bg-[#00ff41]/5'
+              : 'border-[#333333] text-gray-500 hover:border-[#333333]'
           }`}
         >
           YES {(market.outcomePrices?.[0] * 100).toFixed(1)}¢
         </button>
         <button
           onClick={() => setOutcome(1)}
-          className={`py-2 text-[11px] font-bold rounded-lg border transition-all ${
+          className={`py-2 text-[11px] font-bold rounded-none border transition-all ${
             outcome === 1
-              ? 'border-[#f87171] text-[#f87171] bg-[#f87171]/5'
-              : 'border-white/5 text-gray-500 hover:border-white/10'
+              ? 'border-[#ff3333] text-[#ff3333] bg-[#ff3333]/5'
+              : 'border-[#333333] text-gray-500 hover:border-[#333333]'
           }`}
         >
           NO {(market.outcomePrices?.[1] * 100).toFixed(1)}¢
@@ -98,13 +98,13 @@ export const TradePanel = ({ market }: Props) => {
             placeholder="0.00"
             value={size}
             onChange={(e) => setSize(e.target.value)}
-            className="w-full bg-[#0a0f14] border border-white/5 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-[#5eead4]/30 transition-all font-mono"
+            className="w-full bg-black border border-[#333333] rounded-none py-3 px-4 text-sm focus:outline-none focus:border-[#00ff41]/30 transition-all font-mono"
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-gray-600">SHARES</div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 py-4 border-y border-white/[0.03]">
+      <div className="flex flex-col gap-3 py-4 border-y border-[#333333]">
         <div className="flex justify-between text-[11px]">
           <span className="text-gray-500 font-medium">Avg. Price</span>
           <span className="text-white font-bold">{(price * 100).toFixed(2)}¢</span>
@@ -119,7 +119,7 @@ export const TradePanel = ({ market }: Props) => {
         <button
           onClick={connect}
           disabled={connecting}
-          className="w-full bg-white/[0.05] hover:bg-white/10 text-white py-3.5 rounded-xl font-black text-[11px] transition-all flex items-center justify-center gap-2 uppercase tracking-widest border border-white/5"
+          className="w-full bg-white/[0.05] hover:bg-white/10 text-white py-3.5 rounded-none font-black text-[11px] transition-all flex items-center justify-center gap-2 uppercase tracking-widest border border-[#333333]"
         >
           {connecting ? <Loader2 size={16} className="animate-spin" /> : <Wallet size={14} />}
           Connect Wallet to Trade
@@ -128,10 +128,10 @@ export const TradePanel = ({ market }: Props) => {
         <button
           onClick={handleTrade}
           disabled={isPlacing || !size}
-          className={`w-full py-3.5 rounded-xl font-black text-[11px] transition-all uppercase tracking-widest flex items-center justify-center gap-2 ${
+          className={`w-full py-3.5 rounded-none font-black text-[11px] transition-all uppercase tracking-widest flex items-center justify-center gap-2 ${
             side === 'BUY' 
-              ? 'bg-[#5eead4] text-[#0a0f14] hover:brightness-110' 
-              : 'bg-[#f87171] text-[#0a0f14] hover:brightness-110'
+              ? 'bg-[#00ff41] text-[#0a0f14] hover:brightness-110' 
+              : 'bg-[#ff3333] text-[#0a0f14] hover:brightness-110'
           } disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           {isPlacing ? <Loader2 size={16} className="animate-spin" /> : `${side} ${outcome === 0 ? 'YES' : 'NO'}`}

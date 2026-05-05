@@ -5,8 +5,6 @@ import Footer from "@/components/layout/Footer";
 import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 import { Providers } from "@/providers/Providers";
 
-// We'll use a standard link tag for the font to avoid build-time fetch issues
-
 export const metadata: Metadata = {
   title: "REVEN | Prediction Market Terminal",
   description: "The ultimate terminal for prediction markets. Trade smarter, find the edge, and grow your revenue with REVEN.",
@@ -25,9 +23,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body className={`font-['Plus_Jakarta_Sans',sans-serif] bg-[#0a0f14] text-white h-screen flex flex-col overflow-hidden antialiased`} suppressHydrationWarning>
+      <body className={`font-['JetBrains_Mono',monospace] bg-black text-[#e0e0e0] h-screen flex flex-col overflow-hidden antialiased`} suppressHydrationWarning>
         <Providers>
           <Header />
           <AnnouncementBanner />

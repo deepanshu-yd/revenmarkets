@@ -63,21 +63,21 @@ const CryptoTerminal = () => {
   const timeframes = ["5 Min", "15 Min", "Hourly", "4 Hour"];
 
   return (
-    <div className="flex h-full bg-[#0a0c10] overflow-hidden">
+    <div className="flex h-full bg-black overflow-hidden">
       {/* Sidebar Timeframes */}
-      <div className="w-[180px] border-r border-white/[0.03] flex flex-col py-6">
+      <div className="w-[180px] border-r border-[#333333] flex flex-col py-6">
         {timeframes.map((tf) => (
           <button
             key={tf}
             onClick={() => setActiveTimeframe(tf)}
             className={`flex items-center gap-3 px-6 py-4 transition-all relative ${
               activeTimeframe === tf 
-                ? "text-[#5eead4] bg-[#5eead4]/5" 
+                ? "text-[#00ff41] bg-[#00ff41]/5" 
                 : "text-gray-500 hover:text-gray-300"
             }`}
           >
-            {activeTimeframe === tf && <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#5eead4]" />}
-            <Clock size={16} className={activeTimeframe === tf ? "text-[#5eead4]" : "text-gray-600"} />
+            {activeTimeframe === tf && <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#00ff41]" />}
+            <Clock size={16} className={activeTimeframe === tf ? "text-[#00ff41]" : "text-gray-600"} />
             <span className="text-[11px] font-black uppercase tracking-widest">{tf}</span>
           </button>
         ))}
@@ -86,7 +86,7 @@ const CryptoTerminal = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Sub Header */}
-        <div className="px-12 py-6 flex items-center justify-between border-b border-white/[0.03]">
+        <div className="px-12 py-6 flex items-center justify-between border-b border-[#333333]">
           <div>
             <h1 className="text-sm font-bold text-white/90">{activeTimeframe} Crypto Markets</h1>
             <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">
@@ -95,7 +95,7 @@ const CryptoTerminal = () => {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">3m 21s left</span>
-            <div className="w-2 h-2 rounded-full bg-[#f87171] animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-[#ff3333] animate-pulse" />
           </div>
         </div>
 
@@ -105,7 +105,7 @@ const CryptoTerminal = () => {
             {CRYPTO_DATA.map((crypto) => (
               <div 
                 key={crypto.id}
-                className="bg-[#11161d] border border-white/[0.05] rounded-xl p-5 hover:border-white/10 transition-all group"
+                className="bg-[#111111] border border-[#333333] rounded-none p-5 hover:border-[#333333] transition-all group"
               >
                 {/* Card Header */}
                 <div className="flex items-center justify-between mb-6">
@@ -114,7 +114,7 @@ const CryptoTerminal = () => {
                       <img 
                         src={`https://raw.githubusercontent.com/spothq/cryptocharts/master/svg/${crypto.symbol.toLowerCase()}.svg`}
                         alt={crypto.symbol}
-                        className="w-10 h-10 rounded-lg object-contain bg-white/5 p-1.5"
+                        className="w-10 h-10 rounded-none object-contain bg-white/5 p-1.5"
                       />
                       <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-blue-600 rounded-full border border-[#11161d] flex items-center justify-center">
                         <span className="text-[8px] font-black text-white">B</span>
@@ -145,7 +145,7 @@ const CryptoTerminal = () => {
                         cy="20"
                         r="16"
                         fill="none"
-                        stroke={crypto.status === 'up' ? '#5eead4' : '#f87171'}
+                        stroke={crypto.status === 'up' ? '#00ff41' : '#ff3333'}
                         strokeWidth="3"
                         strokeDasharray={100}
                         strokeDashoffset={100 - crypto.probability}
@@ -156,13 +156,13 @@ const CryptoTerminal = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <button disabled className="flex flex-col items-center py-2.5 bg-[#065f46]/10 border border-[#065f46]/20 rounded-lg cursor-not-allowed group/btn relative overflow-hidden">
-                    <span className="text-[10px] font-bold text-[#5eead4]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Up {crypto.upPrice}¢</span>
-                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#5eead4] font-black uppercase">Paused</span>
+                  <button disabled className="flex flex-col items-center py-2.5 bg-[#065f46]/10 border border-[#065f46]/20 rounded-none cursor-not-allowed group/btn relative overflow-hidden">
+                    <span className="text-[10px] font-bold text-[#00ff41]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Up {crypto.upPrice}¢</span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#00ff41] font-black uppercase">Paused</span>
                   </button>
-                  <button disabled className="flex flex-col items-center py-2.5 bg-[#991b1b]/10 border border-[#991b1b]/20 rounded-lg cursor-not-allowed group/btn relative overflow-hidden">
-                    <span className="text-[10px] font-bold text-[#f87171]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Down {crypto.downPrice}¢</span>
-                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#f87171] font-black uppercase">Paused</span>
+                  <button disabled className="flex flex-col items-center py-2.5 bg-[#991b1b]/10 border border-[#991b1b]/20 rounded-none cursor-not-allowed group/btn relative overflow-hidden">
+                    <span className="text-[10px] font-bold text-[#ff3333]/40 uppercase tracking-wider group-hover/btn:opacity-0 transition-opacity">Down {crypto.downPrice}¢</span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#ff3333] font-black uppercase">Paused</span>
                   </button>
                 </div>
 
@@ -171,7 +171,7 @@ const CryptoTerminal = () => {
                   <div className="space-y-3">
                     <div>
                       <div className="text-[9px] font-bold text-gray-600 uppercase tracking-widest flex items-center gap-1">
-                        Current Price <TrendingDown size={10} className="text-[#f87171]" />
+                        Current Price <TrendingDown size={10} className="text-[#ff3333]" />
                       </div>
                       <div className="text-[12px] font-bold text-[#fbbf24] mt-0.5">
                         ${crypto.currentPrice.toLocaleString()}
@@ -187,7 +187,7 @@ const CryptoTerminal = () => {
                     </div>
                   </div>
                   
-                  <button className="p-2 text-gray-600 hover:text-[#5eead4] transition-colors">
+                  <button className="p-2 text-gray-600 hover:text-[#00ff41] transition-colors">
                     <Bookmark size={16} />
                   </button>
                 </div>

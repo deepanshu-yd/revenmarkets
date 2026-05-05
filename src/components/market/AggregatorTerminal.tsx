@@ -176,7 +176,7 @@ const AggregatorTerminal = () => {
   const [selectedItem, setSelectedItem] = React.useState<AggregatorMarket | null>(null);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-black px-12 py-8 custom-scrollbar">
       {selectedItem && (
         <AggregatorModal 
           item={selectedItem} 
@@ -187,10 +187,10 @@ const AggregatorTerminal = () => {
         {AGGREGATOR_DATA.map((item) => (
           <div 
             key={item.id}
-            className="bg-[#11161d] border border-white/[0.05] rounded-xl overflow-hidden hover:border-white/10 transition-all group shadow-lg"
+            className="bg-[#111111] border border-[#333333] rounded-none overflow-hidden hover:border-[#333333] transition-all group "
           >
             {/* Polymarket Row */}
-            <div className="px-6 py-5 border-b border-white/[0.03] flex items-center justify-between group/row hover:bg-white/[0.01] transition-colors">
+            <div className="px-6 py-5 border-b border-[#333333] flex items-center justify-between group/row hover:bg-white/[0.01] transition-colors">
               <div className="flex items-center gap-4 flex-1">
                 <div className="relative">
                   <MarketImage 
@@ -209,17 +209,17 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-6">
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Yes</span>
-                  <span className="text-[12px] font-bold text-[#5eead4]">{item.poly.yes}¢</span>
+                  <span className="text-[12px] font-bold text-[#00ff41]">{item.poly.yes}¢</span>
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">No</span>
-                  <span className="text-[12px] font-bold text-[#f87171]">{item.poly.no}¢</span>
+                  <span className="text-[12px] font-bold text-[#ff3333]">{item.poly.no}¢</span>
                 </div>
               </div>
             </div>
 
             {/* Kalshi Row */}
-            <div className="px-6 py-5 border-b border-white/[0.03] flex items-center justify-between group/row hover:bg-white/[0.01] transition-colors">
+            <div className="px-6 py-5 border-b border-[#333333] flex items-center justify-between group/row hover:bg-white/[0.01] transition-colors">
               <div className="flex items-center gap-4 flex-1">
                 <div className="relative">
                   <MarketImage 
@@ -238,11 +238,11 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-6">
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Yes</span>
-                  <span className="text-[12px] font-bold text-[#5eead4]">{item.kalshi.yes}¢</span>
+                  <span className="text-[12px] font-bold text-[#00ff41]">{item.kalshi.yes}¢</span>
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">No</span>
-                  <span className="text-[12px] font-bold text-[#f87171]">{item.kalshi.no}¢</span>
+                  <span className="text-[12px] font-bold text-[#ff3333]">{item.kalshi.no}¢</span>
                 </div>
               </div>
             </div>
@@ -252,7 +252,7 @@ const AggregatorTerminal = () => {
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Match</span>
-                  <span className="text-[12px] font-bold text-[#5eead4]">{item.match}%</span>
+                  <span className="text-[12px] font-bold text-[#00ff41]">{item.match}%</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Price Diff</span>
@@ -261,7 +261,7 @@ const AggregatorTerminal = () => {
               </div>
               <button 
                 onClick={() => setSelectedItem(item)}
-                className="px-5 py-2 bg-[#1a212c] border border-white/10 rounded-lg text-[10px] font-black text-white hover:bg-[#232d3b] hover:border-[#5eead4]/50 transition-all uppercase tracking-widest"
+                className="px-5 py-2 bg-[#111111] border border-[#333333] rounded-none text-[10px] font-black text-white hover:bg-[#232d3b] hover:border-[#00ff41]/50 transition-all uppercase tracking-widest"
               >
                 View Details
               </button>

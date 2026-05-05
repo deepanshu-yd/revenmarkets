@@ -6,21 +6,22 @@ import { X, Mail, Wallet } from "lucide-react";
 interface ConnectModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onConnect?: () => void;
 }
 
-const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
+const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose, onConnect }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity"
+        className="absolute inset-0 bg-black/60  transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-[440px] bg-[#1a1f26] border border-white/10 rounded-[24px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+      <div className="relative w-full max-w-[440px] bg-[#111111] border border-[#333333] rounded-none overflow-hidden animate-in fade-in zoom-in duration-300">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -37,7 +38,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
 
           {/* Logo Section */}
           <div className="flex items-center gap-3 mb-10 group">
-            <div className="relative w-12 h-12 flex items-center justify-center text-[#5eead4]">
+            <div className="relative w-12 h-12 flex items-center justify-center text-[#00ff41]">
               <svg
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -64,7 +65,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
           {/* Login Options */}
           <div className="w-full flex flex-col gap-3">
             {/* Email Login */}
-            <button className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-white/[0.05] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group">
+            <button className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-[#333333] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group">
               <Mail size={18} className="text-gray-400 group-hover:text-white transition-colors" />
               <span className="text-[15px] font-bold text-gray-300 group-hover:text-white transition-colors">
                 Login with Email
@@ -72,7 +73,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
             </button>
 
             {/* X Login */}
-            <button className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-white/[0.05] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group">
+            <button className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-[#333333] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group">
               <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-gray-400 group-hover:fill-white transition-colors">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
@@ -82,7 +83,13 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
             </button>
 
             {/* Wallet Login */}
-            <button className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-white/[0.05] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group">
+            <button 
+              onClick={() => {
+                if (onConnect) onConnect();
+                onClose();
+              }}
+              className="w-full bg-[#252b33] hover:bg-[#2d343d] border border-[#333333] rounded-[14px] py-4 px-6 flex items-center justify-center gap-3 transition-all group"
+            >
               <Wallet size={18} className="text-gray-400 group-hover:text-white transition-colors" />
               <span className="text-[15px] font-bold text-gray-300 group-hover:text-white transition-colors">
                 Login with Wallet
@@ -93,9 +100,9 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isOpen, onClose }) => {
           {/* Footer Links */}
           <p className="mt-10 text-[12px] font-medium text-gray-500">
             By logging in I agree to the{" "}
-            <a href="#" className="text-gray-400 hover:text-[#5eead4] underline transition-colors">Terms</a>
+            <a href="#" className="text-gray-400 hover:text-[#00ff41] underline transition-colors">Terms</a>
             {" & "}
-            <a href="#" className="text-gray-400 hover:text-[#5eead4] underline transition-colors">Privacy Policy</a>
+            <a href="#" className="text-gray-400 hover:text-[#00ff41] underline transition-colors">Privacy Policy</a>
           </p>
         </div>
       </div>

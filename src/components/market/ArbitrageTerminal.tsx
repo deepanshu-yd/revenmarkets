@@ -106,7 +106,7 @@ const ArbitrageTerminal = () => {
   const [selectedItem, setSelectedItem] = useState<ArbitrageMarket | null>(null);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-black px-12 py-8 custom-scrollbar">
       {selectedItem && (
         <AggregatorModal 
           item={selectedItem} 
@@ -118,14 +118,14 @@ const ArbitrageTerminal = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-sm font-bold text-white mb-1 flex items-center gap-3">
-              <ArrowRightLeft className="text-[#5eead4]" size={16} />
+              <ArrowRightLeft className="text-[#00ff41]" size={16} />
               Arbitrage Finder
             </h2>
             <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Identify and execute guaranteed profit opportunities across prediction markets.</p>
           </div>
           <div className="flex items-center gap-4">
-            <div className="bg-white/[0.03] border border-white/10 rounded-xl px-5 py-2.5 flex items-center gap-3">
-              <Zap size={14} className="text-[#5eead4]" />
+            <div className="bg-[#111111] border border-[#333333] rounded-none px-5 py-2.5 flex items-center gap-3">
+              <Zap size={14} className="text-[#00ff41]" />
               <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Active Ops: <span className="text-white">14</span></span>
             </div>
           </div>
@@ -146,19 +146,19 @@ const ArbitrageTerminal = () => {
             return (
               <div 
                 key={item.id}
-                className="bg-[#11161d] border border-white/[0.05] rounded-2xl overflow-hidden hover:border-[#5eead4]/30 transition-all group shadow-2xl relative"
+                className="bg-[#111111] border border-[#333333] rounded-none overflow-hidden hover:border-[#00ff41]/30 transition-all group  relative"
               >
                 {/* Arb Badge */}
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="bg-[#5eead4]/10 border border-[#5eead4]/20 rounded-full px-3 py-1 flex items-center gap-1.5 backdrop-blur-md">
-                    <Sparkles size={10} className="text-[#5eead4]" />
-                    <span className="text-[10px] font-black text-[#5eead4] uppercase tracking-wider">{item.profit} ROI</span>
+                  <div className="bg-[#00ff41]/10 border border-[#00ff41]/20 rounded-full px-3 py-1 flex items-center gap-1.5 ">
+                    <Sparkles size={10} className="text-[#00ff41]" />
+                    <span className="text-[10px] font-black text-[#00ff41] uppercase tracking-wider">{item.profit} ROI</span>
                   </div>
                 </div>
 
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-6">
-                    <MarketImage src={item.poly.image} alt="" seed={item.title} className="w-12 h-12 rounded-xl shadow-lg border border-white/5" />
+                    <MarketImage src={item.poly.image} alt="" seed={item.title} className="w-12 h-12 rounded-none  border border-[#333333]" />
                     <div>
                       <h3 className="text-[12px] font-bold text-white/90 leading-tight mb-1">{item.title}</h3>
                       <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest line-clamp-1">{item.description}</p>
@@ -167,7 +167,7 @@ const ArbitrageTerminal = () => {
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {/* Poly Side */}
-                    <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                    <div className="bg-white/[0.02] border border-[#333333] rounded-none p-4">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="w-4 h-4 bg-blue-600 rounded flex items-center justify-center">
                           <span className="text-[8px] font-black text-white">P</span>
@@ -177,18 +177,18 @@ const ArbitrageTerminal = () => {
                       <div className="flex items-center justify-between">
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">Yes</span>
-                          <span className="text-[12px] font-bold text-[#5eead4]">{item.poly.yes}¢</span>
+                          <span className="text-[12px] font-bold text-[#00ff41]">{item.poly.yes}¢</span>
                         </div>
                         <div className="w-px h-6 bg-white/5" />
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">No</span>
-                          <span className="text-[12px] font-bold text-[#f87171]">{item.poly.no}¢</span>
+                          <span className="text-[12px] font-bold text-[#ff3333]">{item.poly.no}¢</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Kalshi Side */}
-                    <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                    <div className="bg-white/[0.02] border border-[#333333] rounded-none p-4">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="w-4 h-4 bg-green-600 rounded flex items-center justify-center">
                           <span className="text-[8px] font-black text-white">K</span>
@@ -198,29 +198,29 @@ const ArbitrageTerminal = () => {
                       <div className="flex items-center justify-between">
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">Yes</span>
-                          <span className="text-[12px] font-bold text-[#5eead4]">{item.kalshi.yes}¢</span>
+                          <span className="text-[12px] font-bold text-[#00ff41]">{item.kalshi.yes}¢</span>
                         </div>
                         <div className="w-px h-6 bg-white/5" />
                         <div className="text-center">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">No</span>
-                          <span className="text-[12px] font-bold text-[#f87171]">{item.kalshi.no}¢</span>
+                          <span className="text-[12px] font-bold text-[#ff3333]">{item.kalshi.no}¢</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Arb Strategy */}
-                  <div className="bg-[#5eead4]/5 border border-[#5eead4]/10 rounded-xl p-4 mb-6">
+                  <div className="bg-[#00ff41]/5 border border-[#00ff41]/10 rounded-none p-4 mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Zap size={14} className="text-[#5eead4]" />
-                      <span className="text-[10px] font-black text-[#5eead4] uppercase tracking-widest">Optimal Strategy</span>
+                      <Zap size={14} className="text-[#00ff41]" />
+                      <span className="text-[10px] font-black text-[#00ff41] uppercase tracking-widest">Optimal Strategy</span>
                     </div>
                     <p className="text-xs font-bold text-white/70 leading-relaxed">
-                      Buy <span className="text-[#5eead4]">YES</span> on Polymarket for {item.poly.yes}¢ and <span className="text-[#f87171]">NO</span> on Kalshi for {item.kalshi.no}¢.
+                      Buy <span className="text-[#00ff41]">YES</span> on Polymarket for {item.poly.yes}¢ and <span className="text-[#ff3333]">NO</span> on Kalshi for {item.kalshi.no}¢.
                     </p>
                     <div className="mt-3 flex items-center gap-4">
                       <div className="text-[10px] font-bold text-gray-500 uppercase">Total Cost: <span className="text-white ml-1">{item.poly.yes + item.kalshi.no}¢</span></div>
-                      <div className="text-[10px] font-bold text-gray-500 uppercase">Net Profit: <span className="text-[#5eead4] ml-1">{100 - (item.poly.yes + item.kalshi.no)}¢</span></div>
+                      <div className="text-[10px] font-bold text-gray-500 uppercase">Net Profit: <span className="text-[#00ff41] ml-1">{100 - (item.poly.yes + item.kalshi.no)}¢</span></div>
                     </div>
                   </div>
 
@@ -236,7 +236,7 @@ const ArbitrageTerminal = () => {
                     </div>
                     <button 
                       onClick={() => setSelectedItem(item)}
-                      className="px-6 py-2.5 bg-[#1a212c] border border-white/10 rounded-xl text-[10px] font-black text-white hover:bg-[#5eead4] hover:text-black hover:border-[#5eead4] transition-all uppercase tracking-widest flex items-center gap-2 group/btn"
+                      className="px-6 py-2.5 bg-[#111111] border border-[#333333] rounded-none text-[10px] font-black text-white hover:bg-[#00ff41] hover:text-black hover:border-[#00ff41] transition-all uppercase tracking-widest flex items-center gap-2 group/btn"
                     >
                       Execute Arb
                       <TrendingUp size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
