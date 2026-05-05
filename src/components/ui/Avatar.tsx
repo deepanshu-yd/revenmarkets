@@ -20,7 +20,7 @@ export const Avatar = ({ src, seed, size = 'md', className = '' }: Props) => {
     <img
       src={finalSrc}
       alt=""
-      className={`${sizeClasses[size]} rounded-md bg-white/5 object-cover ${className}`}
+      className={`${sizeClasses[size]} rounded-none bg-white/5 object-cover ${className}`}
     />
   )
 }

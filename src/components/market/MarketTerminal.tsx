@@ -18,9 +18,9 @@ const MarketTerminal = () => {
   const { markets, error, isLoading } = useMarkets(activeSubTab, searchQuery);
 
   return (
-    <div className="flex flex-col h-full overflow-hidden bg-[#0a0c10]">
+    <div className="flex flex-col h-full overflow-hidden bg-black">
       {/* Sub-Tabs Navigation & Search */}
-      <div className="flex items-center justify-between px-12 py-2 border-b border-white/[0.03] bg-[#0a0c10] z-30">
+      <div className="flex items-center justify-between px-12 py-2 border-b border-[#333333] bg-black z-30">
         <div className="flex items-center gap-7 py-2">
           {subTabs.map((tab) => (
             <button
@@ -33,7 +33,7 @@ const MarketTerminal = () => {
             >
               {tab}
               {activeSubTab === tab && (
-                <div className="absolute bottom-[-11px] left-0 right-0 h-[1.5px] bg-[#5eead4] shadow-[0_0_8px_rgba(94,234,212,0.4)]" />
+                <div className="absolute bottom-[-11px] left-0 right-0 h-[1.5px] bg-[#00ff41] " />
               )}
             </button>
           ))}
@@ -46,7 +46,7 @@ const MarketTerminal = () => {
             placeholder="Search markets..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="bg-white/[0.03] border border-white/10 rounded-lg py-1.5 pl-9 pr-4 text-[11px] text-white focus:outline-none focus:border-[#5eead4]/50 w-[240px] transition-all"
+            className="bg-[#111111] border border-[#333333] rounded-none py-1.5 pl-9 pr-4 text-[11px] text-white focus:outline-none focus:border-[#00ff41]/50 w-[240px] transition-all"
           />
         </div>
       </div>
@@ -54,8 +54,8 @@ const MarketTerminal = () => {
       {/* Terminal Content (Scrollable Box) */}
       <div className="flex-1 overflow-y-auto overflow-x-auto custom-scrollbar pb-12">
         <table className="w-full text-left border-collapse min-w-[1200px]">
-          <thead className="sticky top-0 bg-[#0a0c10] z-20">
-            <tr className="border-b border-white/[0.03]">
+          <thead className="sticky top-0 bg-black z-20">
+            <tr className="border-b border-[#333333]">
               <th className="px-12 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider w-[400px]">Market</th>
               <th className="px-4 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">Price (yes|no)</th>
               <th className="px-4 py-3 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
@@ -96,7 +96,7 @@ const MarketTerminal = () => {
               <tr>
                 <td colSpan={9} className="py-20 text-center">
                   <div className="flex flex-col items-center gap-3">
-                    <Loader2 className="w-8 h-8 text-[#5eead4] animate-spin" />
+                    <Loader2 className="w-8 h-8 text-[#00ff41] animate-spin" />
                     <span className="text-gray-500 font-bold text-xs uppercase tracking-widest">Loading Markets...</span>
                   </div>
                 </td>
@@ -121,7 +121,7 @@ const MarketTerminal = () => {
                       <img
                         src={market.image || market.icon || `https://api.dicebear.com/7.x/initials/svg?seed=${market.ticker || market.id}`}
                         alt=""
-                        className="w-8 h-8 rounded-md bg-gray-800 object-cover"
+                        className="w-8 h-8 rounded-none bg-gray-800 object-cover"
                       />
                       <span className="text-[12px] font-medium text-white/80 leading-relaxed group-hover:text-white transition-colors">
                         {market.question}
@@ -130,11 +130,11 @@ const MarketTerminal = () => {
                   </td>
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#5eead4] text-[12px] font-bold">
+                      <span className="text-[#00ff41] text-[12px] font-bold">
                         {market.outcomePrices?.[0] != null ? `${(market.outcomePrices[0] * 100).toFixed(1)}¢` : "—"}
                       </span>
                       <span className="text-gray-700">|</span>
-                      <span className="text-[#f87171] text-[12px] font-bold">
+                      <span className="text-[#ff3333] text-[12px] font-bold">
                         {market.outcomePrices?.[1] != null ? `${(market.outcomePrices[1] * 100).toFixed(1)}¢` : "—"}
                       </span>
                     </div>
@@ -145,10 +145,10 @@ const MarketTerminal = () => {
                   <td className="px-4 py-4 text-[12px] font-bold text-white/60">
                     {fmtUSD(market.volumeNum)}
                   </td>
-                  <td className={`px-4 py-4 text-[12px] font-bold ${((market.oneDayPriceChange ?? 0) >= 0) ? "text-[#5eead4]" : "text-[#f87171]"}`}>
+                  <td className={`px-4 py-4 text-[12px] font-bold ${((market.oneDayPriceChange ?? 0) >= 0) ? "text-[#00ff41]" : "text-[#ff3333]"}`}>
                     {fmtPct(market.oneDayPriceChange)}
                   </td>
-                  <td className="px-4 py-4 text-[#5eead4] text-[12px] font-bold">
+                  <td className="px-4 py-4 text-[#00ff41] text-[12px] font-bold">
                     {fmtUSD(market.liquidityNum)}
                   </td>
                   <td className="px-4 py-4 text-[12px] font-bold text-white/40">
@@ -159,13 +159,13 @@ const MarketTerminal = () => {
                   </td>
                   <td className="px-4 pr-12 py-4">
                     <div className="flex items-center gap-2">
-                      <button disabled className="bg-[#5eead4]/5 text-[#5eead4]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#5eead4]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
+                      <button disabled className="bg-[#00ff41]/5 text-[#00ff41]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#00ff41]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
                         <span className="group-hover/btn:opacity-0 transition-opacity">BUY YES</span>
-                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#5eead4] font-black uppercase">Paused</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#00ff41] font-black uppercase">Paused</span>
                       </button>
-                      <button disabled className="bg-[#f87171]/5 text-[#f87171]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#f87171]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
+                      <button disabled className="bg-[#ff3333]/5 text-[#ff3333]/40 text-[10px] font-black px-3 py-1.5 rounded border border-[#ff3333]/10 cursor-not-allowed group/btn relative overflow-hidden min-w-[70px]">
                         <span className="group-hover/btn:opacity-0 transition-opacity">BUY NO</span>
-                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#f87171] font-black uppercase">Paused</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity text-[8px] text-[#ff3333] font-black uppercase">Paused</span>
                       </button>
                     </div>
                   </td>
@@ -178,37 +178,13 @@ const MarketTerminal = () => {
         {/* Load More Button */}
         {!isLoading && markets.length > 0 && (
           <div className="flex justify-center py-10">
-            <button className="bg-[#11161d] hover:bg-[#1a1f26] border border-white/5 text-gray-400 hover:text-white px-8 py-3 rounded-xl font-bold text-sm transition-all duration-200 shadow-lg flex items-center gap-2 group">
+            <button className="bg-[#111111] hover:bg-[#1a1f26] border border-[#333333] text-gray-400 hover:text-white px-8 py-3 rounded-none font-bold text-sm transition-all duration-200  flex items-center gap-2 group">
               Load More Markets
               <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </button>
           </div>
         )}
       </div>
-
-      <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-          height: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(94, 234, 212, 0.2);
-        }
-      `}</style>
     </div>
   );
 };

@@ -8,19 +8,20 @@ import { useSettings } from "@/providers/SettingsContext";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const { isPrivate, setIsPrivate } = useSettings();
 
   return (
     <>
-      <header className="flex items-center justify-between px-12 py-3 bg-[#0a0f14] border-b border-white/5 sticky top-0 z-50">
+      <header className="flex items-center justify-between px-12 py-3 bg-black border-b border-[#333333] sticky top-0 z-50">
         <div className="flex items-center gap-10">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8 flex items-center justify-center text-[#5eead4] animate-logo">
+            <div className="relative w-8 h-8 flex items-center justify-center text-[#00ff41] animate-logo">
               <svg
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-7 h-7 transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(94,234,212,0.4)]"
+                className="w-7 h-7 transition-transform duration-500 group-hover:scale-110"
               >
                 {/* Ghost Body - Solid Shape for Sharpness */}
                 <path
@@ -46,7 +47,7 @@ const Header = () => {
           <nav className="hidden lg:flex items-center gap-8">
             <Link
               href="/?tab=New Markets"
-              className="flex items-center gap-1.5 text-[#5eead4] text-[13px] font-semibold transition-colors hover:opacity-80"
+              className="flex items-center gap-1.5 text-[#00ff41] text-[13px] font-semibold transition-colors hover:opacity-80"
             >
               <Zap size={14} fill="currentColor" />
               Flash
@@ -76,37 +77,49 @@ const Header = () => {
             <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest group-hover:text-gray-400 transition-colors">Private Mode</span>
             <button 
               onClick={() => setIsPrivate(!isPrivate)}
-              className={`w-8 h-4 rounded-full relative transition-all duration-300 ${isPrivate ? 'bg-[#5eead4]' : 'bg-white/10'}`}
+              className={`w-8 h-4 rounded-full relative transition-all duration-300 ${isPrivate ? 'bg-[#00ff41]' : 'bg-white/10'}`}
             >
-              <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-[#0a0f14] transition-all duration-300 ${isPrivate ? 'left-[18px]' : 'left-0.5'}`} />
+              <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-black transition-all duration-300 ${isPrivate ? 'left-[18px]' : 'left-0.5'}`} />
             </button>
           </div>
 
-          <button className="p-2.5 bg-[#11161d] border border-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-          </button>
+          {!isConnected ? (
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-[#00ff41]/10 text-[#00ff41] px-6 py-2 border border-[#00ff41]/20 font-black text-[11px] uppercase tracking-widest hover:bg-[#00ff41]/20 transition-all rounded-none"
+            >
+              Connect
+            </button>
+          ) : (
+            <>
+              <button className="p-2.5 bg-[#111111] border border-[#333333] rounded-none text-gray-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+              </button>
 
-          <button 
-            disabled
-            className="bg-[#5eead4]/5 border border-[#5eead4]/10 rounded-lg px-6 py-2 text-[11px] font-black text-[#5eead4]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden transition-all"
-          >
-            <span className="group-hover:opacity-0 transition-opacity">Deposit</span>
-            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">PAUSED</span>
-          </button>
+              <button 
+                disabled
+                className="bg-[#00ff41]/5 border border-[#00ff41]/10 rounded-none px-6 py-2 text-[11px] font-black text-[#00ff41]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden transition-all"
+              >
+                <span className="group-hover:opacity-0 transition-opacity">Deposit</span>
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#00ff41] font-black">PAUSED</span>
+              </button>
 
-          <button className="p-2.5 bg-[#11161d] border border-white/5 rounded-lg text-gray-400 hover:text-white transition-colors">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
-          </button>
+              <button className="p-2.5 bg-[#111111] border border-[#333333] rounded-none text-gray-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       </header>
 
       <ConnectModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        onConnect={() => setIsConnected(true)}
       />
     </>
   );

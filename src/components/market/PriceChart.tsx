@@ -40,7 +40,7 @@ export const PriceChart = ({ data, liveTick }: Props) => {
     })
 
     const areaSeries = chart.addSeries(AreaSeries, {
-      lineColor: '#5eead4',
+      lineColor: '#00ff41',
       topColor: 'rgba(94, 234, 212, 0.2)',
       bottomColor: 'rgba(94, 234, 212, 0.0)',
       lineWidth: 2,

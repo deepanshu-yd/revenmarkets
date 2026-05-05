@@ -5,16 +5,14 @@ const Footer = () => {
   return (
     <>
       {/* Floating Chat Button */}
-      <button className="fixed bottom-14 right-6 w-12 h-12 bg-[#5eead4] rounded-full flex items-center justify-center text-[#0a0f14] shadow-[0_0_20px_rgba(94,234,212,0.3)] hover:scale-110 transition-transform z-50 group">
+      <button className="fixed bottom-12 right-6 w-12 h-12 bg-[#00ff41] rounded-none flex items-center justify-center text-black transition-transform z-50 group">
         <MessageSquare className="w-6 h-6 fill-current" />
-        {/* Subtle Glow Pulse */}
-        <div className="absolute inset-0 rounded-full bg-[#5eead4] animate-ping opacity-20 scale-75 group-hover:opacity-40" />
       </button>
 
-      <footer className="fixed bottom-0 left-0 right-0 h-10 bg-[#0a0f14] border-t border-white/5 flex items-center justify-between px-12 z-50">
+      <footer className="fixed bottom-0 left-0 right-0 h-8 bg-black border-t border-[#333333] flex items-center justify-between px-12 z-50">
         {/* Left side: Status */}
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-[#22c55e]  animate-pulse" />
           <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.1em] group-hover:text-white/80 transition-colors">
             Status
           </span>

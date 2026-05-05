@@ -38,7 +38,7 @@ function HomeContent() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#0a0c10] overflow-hidden">
+    <div className="h-full flex flex-col bg-black overflow-hidden">
       <MarketNav activeTab={activeTab} onTabChange={setActiveTab} />
       <div className="flex-1 overflow-hidden">
         {renderContent()}
@@ -49,7 +49,7 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="h-full bg-[#0a0c10]" />}>
+    <Suspense fallback={<div className="h-full bg-black" />}>
       <HomeContent />
     </Suspense>
   );

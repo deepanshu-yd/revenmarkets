@@ -11,7 +11,7 @@ export const MarketImage = ({ src, alt, seed, className }: { src: string; alt: s
       src={error ? fallback : (src || fallback)} 
       alt={alt}
       onError={() => setError(true)}
-      className={className || "w-9 h-9 rounded-md bg-gray-800 object-cover"} 
+      className={className || "w-9 h-9 rounded-none bg-gray-800 object-cover"} 
       referrerPolicy="no-referrer"
     />
   );

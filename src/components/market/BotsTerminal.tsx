@@ -25,7 +25,7 @@ const ACTIVE_BOTS = [
     roi: "+12.4%",
     profit: "$420.69",
     uptime: "4d 12h",
-    color: "#5eead4"
+    color: "#00ff41"
   },
   {
     id: 2,
@@ -76,41 +76,41 @@ const BotsTerminal = () => {
   const [activeTab, setActiveTab] = useState("Manage");
 
   return (
-    <div className="h-full overflow-y-auto bg-[#0a0c10] px-12 py-8 custom-scrollbar">
+    <div className="h-full overflow-y-auto bg-black px-12 py-8 custom-scrollbar">
       <div className="max-w-[1400px] mx-auto space-y-10 pb-20">
         
         {/* Header Section */}
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-sm font-bold text-white flex items-center gap-3 mb-1">
-              <Bot className="text-[#5eead4]" size={18} />
+              <Bot className="text-[#00ff41]" size={18} />
               Automated Bots
             </h2>
             <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Deploy algorithmic strategies and copy the world's best predictors.</p>
           </div>
-          <button disabled className="bg-[#5eead4]/20 text-[#5eead4]/40 px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center gap-2 cursor-not-allowed group relative overflow-hidden transition-all">
+          <button disabled className="bg-[#00ff41]/20 text-[#00ff41]/40 px-5 py-2.5 rounded-none font-black text-[10px] uppercase tracking-widest flex items-center gap-2 cursor-not-allowed group relative overflow-hidden transition-all">
             <span className="group-hover:opacity-0 transition-opacity flex items-center gap-2">
               <Plus size={14} />
               Create Custom Bot
             </span>
-            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">CREATION PAUSED</span>
+            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#00ff41] font-black">CREATION PAUSED</span>
           </button>
         </div>
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
-            { label: "Active Bots", val: "14", icon: <Bot size={16} />, color: "text-[#5eead4]" },
+            { label: "Active Bots", val: "14", icon: <Bot size={16} />, color: "text-[#00ff41]" },
             { label: "Total Profit", val: "$12,450", icon: <TrendingUp size={16} />, color: "text-white" },
             { label: "Avg. Win Rate", val: "84%", icon: <ShieldCheck size={16} />, color: "text-white" },
             { label: "Gas Saved", val: "1.2 ETH", icon: <Zap size={16} />, color: "text-white" }
           ].map((stat, i) => (
-            <div key={i} className="bg-[#11161d] border border-white/5 rounded-2xl p-6 flex items-center justify-between">
+            <div key={i} className="bg-[#111111] border border-[#333333] rounded-none p-6 flex items-center justify-between">
               <div>
                 <span className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.2em] block mb-2">{stat.label}</span>
                 <span className={`text-[20px] font-black ${stat.color}`}>{stat.val}</span>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center text-gray-500">
+              <div className="w-10 h-10 rounded-none bg-[#111111] flex items-center justify-center text-gray-500">
                 {stat.icon}
               </div>
             </div>
@@ -134,7 +134,7 @@ const BotsTerminal = () => {
                     <button 
                       key={t}
                       onClick={() => setActiveTab(t)}
-                      className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-lg transition-all ${activeTab === t ? 'bg-white/10 text-white' : 'text-gray-500 hover:text-gray-400'}`}
+                      className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-none transition-all ${activeTab === t ? 'bg-white/10 text-white' : 'text-gray-500 hover:text-gray-400'}`}
                     >
                       {t}
                     </button>
@@ -144,10 +144,10 @@ const BotsTerminal = () => {
               
               <div className="grid grid-cols-1 gap-4">
                 {ACTIVE_BOTS.map(bot => (
-                  <div key={bot.id} className="bg-[#11161d] border border-white/5 rounded-2xl p-6 group hover:border-white/10 transition-all">
+                  <div key={bot.id} className="bg-[#111111] border border-[#333333] rounded-none p-6 group hover:border-[#333333] transition-all">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-5">
-                        <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${bot.color}10`, color: bot.color }}>
+                        <div className="w-12 h-12 rounded-none flex items-center justify-center" style={{ backgroundColor: `${bot.color}10`, color: bot.color }}>
                           <Cpu size={24} />
                         </div>
                         <div>
@@ -164,13 +164,13 @@ const BotsTerminal = () => {
                       <div className="flex items-center gap-12">
                         <div className="text-right">
                           <span className="text-[9px] font-bold text-gray-600 uppercase block mb-1">ROI</span>
-                          <span className="text-lg font-black text-[#5eead4]">{bot.roi}</span>
+                          <span className="text-lg font-black text-[#00ff41]">{bot.roi}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <button className="p-3 bg-white/[0.03] rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+                          <button className="p-3 bg-[#111111] rounded-none text-gray-400 hover:bg-white/5 hover:text-white transition-all">
                             {bot.status === 'Running' ? <Square size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}
                           </button>
-                          <button className="p-3 bg-white/[0.03] rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+                          <button className="p-3 bg-[#111111] rounded-none text-gray-400 hover:bg-white/5 hover:text-white transition-all">
                             <BarChart3 size={16} />
                           </button>
                         </div>
@@ -189,18 +189,18 @@ const BotsTerminal = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {BOT_TEMPLATES.map(template => (
-                  <div key={template.id} className="bg-[#11161d] border border-white/5 rounded-2xl p-6 flex flex-col hover:border-[#5eead4]/30 transition-all cursor-pointer group">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center text-[#5eead4] mb-5 group-hover:scale-110 transition-transform">
+                  <div key={template.id} className="bg-[#111111] border border-[#333333] rounded-none p-6 flex flex-col hover:border-[#00ff41]/30 transition-all cursor-pointer group">
+                    <div className="w-10 h-10 rounded-none bg-[#111111] flex items-center justify-center text-[#00ff41] mb-5 group-hover:scale-110 transition-transform">
                       {template.icon}
                     </div>
                     <h4 className="font-black text-white mb-2">{template.name}</h4>
                     <p className="text-xs text-gray-500 leading-relaxed mb-6 flex-1">{template.description}</p>
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div className="flex items-center justify-between pt-4 border-t border-[#333333]">
                       <div>
                         <span className="text-[9px] font-bold text-gray-600 uppercase block mb-0.5">Est. ROI</span>
-                        <span className="text-xs font-black text-[#5eead4]">{template.avgRoi}</span>
+                        <span className="text-xs font-black text-[#00ff41]">{template.avgRoi}</span>
                       </div>
-                      <button className="p-2 bg-white/5 rounded-lg text-white opacity-0 group-hover:opacity-100 transition-all">
+                      <button className="p-2 bg-white/5 rounded-none text-white opacity-0 group-hover:opacity-100 transition-all">
                         <ArrowUpRight size={16} />
                       </button>
                     </div>
@@ -212,18 +212,18 @@ const BotsTerminal = () => {
 
           {/* Sidebar: Copy Trading */}
           <div className="space-y-8">
-            <div className="bg-[#11161d] border border-white/5 rounded-2xl overflow-hidden">
-              <div className="p-6 border-b border-white/5">
+            <div className="bg-[#111111] border border-[#333333] rounded-none overflow-hidden">
+              <div className="p-6 border-b border-[#333333]">
                 <h3 className="text-sm font-black text-white flex items-center gap-3">
-                  <Users size={16} className="text-[#5eead4]" />
+                  <Users size={16} className="text-[#00ff41]" />
                   Copy Trading
                 </h3>
               </div>
               <div className="p-4 space-y-2">
                 {TOP_TRADERS.map((trader, i) => (
-                  <div key={trader.id} className="p-4 rounded-xl hover:bg-white/[0.02] transition-all flex items-center justify-between group">
+                  <div key={trader.id} className="p-4 rounded-none hover:bg-white/[0.02] transition-all flex items-center justify-between group">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center border border-white/10">
+                      <div className="w-10 h-10 rounded-none bg-[#111111] flex items-center justify-center border border-[#333333]">
                         <span className="text-[10px] font-black text-white/40">{i+1}</span>
                       </div>
                       <div>
@@ -234,32 +234,32 @@ const BotsTerminal = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs font-black text-[#5eead4] block">{trader.roi30d}</span>
+                      <span className="text-xs font-black text-[#00ff41] block">{trader.roi30d}</span>
                       <button disabled className="text-[9px] font-black text-gray-700 uppercase tracking-widest mt-1 cursor-not-allowed group relative overflow-hidden px-2 py-0.5">
                         <span className="group-hover:opacity-0 transition-opacity">Copy</span>
-                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[7px] text-[#5eead4] font-black">PAUSED</span>
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[7px] text-[#00ff41] font-black">PAUSED</span>
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="p-6 bg-white/[0.01]">
-                <button className="w-full py-3 bg-white/5 rounded-xl text-[10px] font-black text-white uppercase tracking-widest hover:bg-white/10 transition-all">
+                <button className="w-full py-3 bg-white/5 rounded-none text-[10px] font-black text-white uppercase tracking-widest hover:bg-white/10 transition-all">
                   View Full Leaderboard
                 </button>
               </div>
             </div>
 
             {/* AI Assistant Promo */}
-            <div className="bg-gradient-to-br from-[#5eead4]/10 to-transparent border border-[#5eead4]/10 rounded-2xl p-6 relative overflow-hidden group">
+            <div className="bg-[#111111] border border-[#00ff41]/10 rounded-none p-6 relative overflow-hidden group">
               <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform">
                 <Bot size={120} />
               </div>
-              <h3 className="text-sm font-black text-[#5eead4] uppercase tracking-widest mb-3">AI Strategy Optimizer</h3>
+              <h3 className="text-sm font-black text-[#00ff41] uppercase tracking-widest mb-3">AI Strategy Optimizer</h3>
               <p className="text-xs text-white/60 leading-relaxed mb-6">Let Reven AI analyze your portfolio and suggest the best active bots for current market conditions.</p>
-              <button disabled className="px-5 py-2.5 bg-[#5eead4]/10 border border-[#5eead4]/20 rounded-xl text-[10px] font-black text-[#5eead4]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden">
+              <button disabled className="px-5 py-2.5 bg-[#00ff41]/10 border border-[#00ff41]/20 rounded-none text-[10px] font-black text-[#00ff41]/40 uppercase tracking-widest cursor-not-allowed group relative overflow-hidden">
                 <span className="group-hover:opacity-0 transition-opacity">Run AI Audit</span>
-                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#5eead4] font-black">AUDIT PAUSED</span>
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#00ff41] font-black">AUDIT PAUSED</span>
               </button>
             </div>
           </div>
